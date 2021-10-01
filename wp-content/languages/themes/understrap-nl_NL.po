@@ -1,0 +1,747 @@
+# Translation of Themes - Understrap in Dutch
+# This file is distributed under the same license as the Themes - Understrap package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-09-08 10:36:02+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"Language: nl\n"
+"Project-Id-Version: Themes - Understrap\n"
+
+#. Description of the theme
+msgid "The renowned WordPress starter theme framework that combined Underscores and Bootstrap. Trusted by more than 100,000 developers for building handcrafted, custom WordPress sites."
+msgstr "Het vermaarde WordPress starter thema framework dat Underscores en Bootstrap combineerde. Vertrouwd door meer dan 100.000 ontwikkelaars voor het bouwen van handgemaakte, aangepaste WordPress sites."
+
+#. Theme Name of the theme
+msgid "Understrap"
+msgstr "Understrap"
+
+#: woocommerce/myaccount/downloads.php:40
+msgid "Browse products"
+msgstr "Blader door producten"
+
+#: sidebar-templates/sidebar-hero.php:36
+msgctxt "carousel control"
+msgid "Next"
+msgstr "Volgende"
+
+#: sidebar-templates/sidebar-hero.php:28
+msgctxt "carousel control"
+msgid "Previous"
+msgstr "Vorige"
+
+#: searchform.php:22
+msgctxt "placeholder"
+msgid "Search &hellip;"
+msgstr "Zoek &hellip;"
+
+#: searchform.php:20
+msgctxt "label"
+msgid "Search for:"
+msgstr "Zoek naar:"
+
+#: inc/editor.php:72
+msgid "Cite"
+msgstr "Citeer"
+
+#: inc/editor.php:66
+msgid "Blockquote Footer"
+msgstr "Blockquote footer"
+
+#: inc/editor.php:60
+msgid "Blockquote"
+msgstr "Blockquote"
+
+#: inc/editor.php:56
+msgctxt "Font size name"
+msgid "Small"
+msgstr "Klein"
+
+#: inc/editor.php:50
+msgid "Lead Paragraph"
+msgstr "Hoofdalinea"
+
+#: inc/customizer.php:149
+msgid "Override Understrap's site info located at the footer of the page."
+msgstr "Overschrijf Understrap's site info die in de footer van de pagina staat."
+
+#: inc/customizer.php:148
+msgid "Footer Site Info"
+msgstr "Footer site info"
+
+#. translators: %s: author name
+#: author.php:77
+msgid "Posts by %s"
+msgstr "Berichten door %s"
+
+#. translators: %s: author name
+#: author.php:63
+msgid "About %s"
+msgstr "Over %s"
+
+#. translators: %s: author name
+#: author.php:42
+msgctxt "Avatar alt"
+msgid "Profile picture of %s"
+msgstr "Profielafbeelding van %s"
+
+#: 404.php:36
+msgid "It looks like nothing was found at this location. Maybe try a search?"
+msgstr "Het lijkt erop dat er niets gevonden is op deze locatie. Probeer het eens met een zoekopdracht?"
+
+#: header.php:36
+msgid "Main Navigation"
+msgstr "Hoofdnavigatie"
+
+#: woocommerce/myaccount/orders.php:101
+msgid "Go to the shop"
+msgstr "Ga naar de winkel"
+
+#: woocommerce/myaccount/form-login.php:98
+msgid "A password will be sent to your email address."
+msgstr "Er wordt een wachtwoord naar je e-mailadres verzonden."
+
+#: woocommerce/loop/orderby.php:24
+msgid "Shop order"
+msgstr "Winkelbestelling"
+
+#. translators: %s: Tags of current post
+#: inc/template-tags.php:68
+msgid "Tagged %s"
+msgstr "Getagd %s"
+
+#: inc/template-tags.php:42
+msgctxt "post author"
+msgid "Posted by"
+msgstr "Geplaatst door"
+
+#: inc/widgets.php:165
+msgid "Full sized footer widget with dynamic grid"
+msgstr "Footer widget op volledige grootte met dynamisch raster"
+
+#: inc/widgets.php:153
+msgid "Full top widget with dynamic grid"
+msgstr "Volledige top widget met dynamisch raster"
+
+#: inc/widgets.php:141
+msgid "Full size canvas hero area for Bootstrap and other custom HTML markup"
+msgstr "Canvas hero gebied op volledig formaat voor Bootstrap en andere aangepaste HTML-markeringen"
+
+#: inc/widgets.php:129
+msgid "Hero slider area. Place two or more widgets here and they will slide!"
+msgstr "Hero slider gebied. Plaats hier twee of meer widgets en ze zullen sliden!"
+
+#: inc/widgets.php:117
+msgid "Left sidebar widget area"
+msgstr "Widget gebied aan de linker zijbalk"
+
+#: inc/widgets.php:105
+msgid "Right sidebar widget area"
+msgstr "Widget gebied in de rechter zijbalk"
+
+#: header.php:63
+msgid "Toggle navigation"
+msgstr "Toggle navigatie"
+
+#: woocommerce/myaccount/form-login.php:53
+msgid "Log in"
+msgstr "Log in"
+
+#: woocommerce/myaccount/form-edit-account.php:38
+msgid "This will be how your name will be displayed in the account section and in reviews"
+msgstr "Dit is hoe je naam wordt weergegeven in de account sectie en in beoordelingen"
+
+#: woocommerce/myaccount/form-edit-account.php:37
+msgid "Display name"
+msgstr "Weergavenaam"
+
+#: woocommerce/checkout/form-coupon.php:31
+msgid "If you have a coupon code, please apply it below."
+msgstr "Als je een waardebon hebt, pas je deze hieronder toe."
+
+#: inc/widgets.php:151
+msgid "Top Full"
+msgstr "Top vol"
+
+#: inc/widgets.php:139
+msgid "Hero Canvas"
+msgstr "Hero canvas"
+
+#: inc/class-wp-bootstrap-navwalker.php:376
+msgid "Add a menu"
+msgstr "Voeg een menu toe"
+
+#: woocommerce/product-searchform.php:26
+msgid "Search for:"
+msgstr "Zoeken naar:"
+
+#: inc/pagination.php:57
+msgid "Posts navigation"
+msgstr "Berichten navigatie"
+
+#: inc/pagination.php:54
+msgid "&raquo;"
+msgstr "&raquo;"
+
+#: inc/pagination.php:53
+msgid "&laquo;"
+msgstr "&laquo;"
+
+#: inc/deprecated.php:86
+msgid "Permanent Link:"
+msgstr "Permanente link:"
+
+#: searchform.php:24 woocommerce/product-searchform.php:29
+msgctxt "submit button"
+msgid "Search"
+msgstr "Zoek"
+
+#: woocommerce/product-searchform.php:25
+msgid "Search products&hellip;"
+msgstr "Zoek producten&hellip;"
+
+#. translators: 1: formatted order total 2: total order items
+#. translators: 1: formatted order total 2: total order items
+#: woocommerce/myaccount/my-orders.php:75 woocommerce/myaccount/orders.php:61
+msgid "%1$s for %2$s item"
+msgid_plural "%1$s for %2$s items"
+msgstr[0] "%1$s voor %2$s item"
+msgstr[1] "%1$s voor %2$s items"
+
+#: woocommerce/myaccount/my-address.php:64
+msgid "You have not set up this type of address yet."
+msgstr "Je hebt dit type adres nog niet ingesteld."
+
+#: woocommerce/myaccount/my-address.php:47
+msgid "The following addresses will be used on the checkout page by default."
+msgstr "Volgende adressen worden standaard gebruikt op de afrekenpagina."
+
+#: woocommerce/cart/cart.php:143 woocommerce/checkout/form-coupon.php:38
+msgid "Apply coupon"
+msgstr "Waardebon toepassen"
+
+#. translators: %s: post title
+#: comments.php:36
+msgctxt "comments title"
+msgid "One thought on &ldquo;%s&rdquo;"
+msgstr "Een gedachte over &ldquo;%s&rdquo;"
+
+#: woocommerce/checkout/form-checkout.php:54
+msgid "Your order"
+msgstr "Je bestelling"
+
+#: woocommerce/checkout/form-checkout.php:26
+msgid "You must be logged in to checkout."
+msgstr "Je moet ingelogd zijn om af te rekenen."
+
+#. Template Name of the theme
+msgid "Right Sidebar Layout"
+msgstr "Rechter zijbalk lay-out"
+
+#: inc/customizer.php:114
+msgid "Set sidebar's default position. Can either be: right, left, both or none. Note: this can be overridden on individual pages."
+msgstr "Stel de standaardpositie van de zijbalk in. Kan zijn: rechts, links, beide of geen. Let op: dit kan op individuele pagina's worden overschreven."
+
+#: inc/custom-header.php:54
+msgid "Default Header Image"
+msgstr "Standaard header afbeelding"
+
+#: inc/template-tags.php:223
+msgctxt "Next post link"
+msgid "%title&nbsp;<i class=\"fa fa-angle-right\"></i>"
+msgstr "%title&nbsp;<i class=\"fa fa-angle-right\"></i>"
+
+#: inc/template-tags.php:220
+msgctxt "Previous post link"
+msgid "<i class=\"fa fa-angle-left\"></i>&nbsp;%title"
+msgstr "<i class=\"fa fa-angle-left\"></i>&nbsp;%title"
+
+#. Template Name of the theme
+msgid "Left Sidebar Layout"
+msgstr "Linker zijbalk lay-out"
+
+#. Template Name of the theme
+msgid "Left and Right Sidebar Layout"
+msgstr "Lay-out linker en rechter zijbalk"
+
+#: woocommerce/myaccount/orders.php:103
+msgid "No order has been made yet."
+msgstr "Er is nog geen bestelling geplaatst."
+
+#: inc/deprecated.php:82 woocommerce/myaccount/orders.php:93
+msgid "Next"
+msgstr "Volgende"
+
+#: inc/deprecated.php:81 woocommerce/myaccount/orders.php:89
+msgid "Previous"
+msgstr "Vorige"
+
+#: woocommerce/myaccount/my-orders.php:63 woocommerce/myaccount/orders.php:49
+msgctxt "hash before order number"
+msgid "#"
+msgstr "#"
+
+#: woocommerce/myaccount/my-orders.php:37
+msgid "Recent orders"
+msgstr "Recente bestellingen"
+
+#: woocommerce/myaccount/my-orders.php:16
+msgid "Status"
+msgstr "Status"
+
+#: woocommerce/myaccount/my-orders.php:15
+msgid "Date"
+msgstr "Datum"
+
+#: woocommerce/myaccount/my-orders.php:14
+msgid "Order"
+msgstr "Bestellen"
+
+#: woocommerce/myaccount/form-reset-password.php:45
+msgid "Save"
+msgstr "Opslaan"
+
+#: woocommerce/myaccount/form-reset-password.php:32
+msgid "Re-enter new password"
+msgstr "Voer nieuw wachtwoord opnieuw in"
+
+#: woocommerce/myaccount/form-reset-password.php:28
+msgid "New password"
+msgstr "Nieuw wachtwoord"
+
+#: woocommerce/myaccount/form-reset-password.php:25
+msgid "Enter a new password below."
+msgstr "Voer hieronder een nieuw wachtwoord in."
+
+#: woocommerce/myaccount/form-lost-password.php:38
+msgid "Reset password"
+msgstr "Wachtwoord opnieuw instellen"
+
+#: woocommerce/myaccount/form-lost-password.php:25
+msgid "Lost your password? Please enter your username or email address. You will receive a link to create a new password via email."
+msgstr "Wachtwoord vergeten? Voer je gebruikersnaam of e-mailadres in. Je ontvang per e-mail een link om een nieuw wachtwoord aan te maken."
+
+#: woocommerce/myaccount/form-login.php:78
+msgid "Username"
+msgstr "Gebruikersnaam"
+
+#: woocommerce/myaccount/form-login.php:69
+#: woocommerce/myaccount/form-login.php:106
+msgid "Register"
+msgstr "Registreren"
+
+#: woocommerce/myaccount/form-login.php:38
+msgid "Username or email address"
+msgstr "Gebruikersnaam of e-mailadres"
+
+#: woocommerce/myaccount/form-edit-address.php:46
+msgid "Save address"
+msgstr "Adres opslaan"
+
+#: woocommerce/myaccount/form-edit-address.php:20
+#: woocommerce/myaccount/my-address.php:28
+msgid "Shipping address"
+msgstr "Verzendingsadres"
+
+#: woocommerce/myaccount/form-edit-address.php:20
+#: woocommerce/myaccount/my-address.php:27
+#: woocommerce/myaccount/my-address.php:36
+msgid "Billing address"
+msgstr "Facturatie adres"
+
+#: woocommerce/myaccount/form-edit-account.php:69
+msgid "Save changes"
+msgstr "Wijzigingen opslaan"
+
+#: woocommerce/myaccount/form-edit-account.php:59
+msgid "Confirm new password"
+msgstr "Bevestig nieuw wachtwoord"
+
+#: woocommerce/myaccount/form-edit-account.php:55
+msgid "New password (leave blank to leave unchanged)"
+msgstr "Nieuw wachtwoord (leeg laten om ongewijzigd te laten)"
+
+#: woocommerce/myaccount/form-edit-account.php:51
+msgid "Current password (leave blank to leave unchanged)"
+msgstr "Huidig wachtwoord (laat leeg om ongewijzigd te laten)"
+
+#: woocommerce/myaccount/form-edit-account.php:48
+msgid "Password change"
+msgstr "Wachtwoord wijziging"
+
+#: woocommerce/myaccount/form-edit-account.php:43
+#: woocommerce/myaccount/form-login.php:85
+msgid "Email address"
+msgstr "E-mailadres"
+
+#: woocommerce/myaccount/form-edit-account.php:31
+msgid "Last name"
+msgstr "Achternaam"
+
+#: woocommerce/myaccount/form-edit-account.php:27
+msgid "First name"
+msgstr "Voornaam"
+
+#: woocommerce/myaccount/downloads.php:42
+msgid "No downloads available yet."
+msgstr "Nog geen downloads beschikbaar."
+
+#: woocommerce/global/form-login.php:60 woocommerce/myaccount/form-login.php:56
+msgid "Lost your password?"
+msgstr "Vergeten wachtwoord?"
+
+#: woocommerce/global/form-login.php:52 woocommerce/myaccount/form-login.php:50
+msgid "Remember me"
+msgstr "Onthoud me"
+
+#: woocommerce/global/form-login.php:56 woocommerce/myaccount/form-login.php:31
+msgid "Login"
+msgstr "Login"
+
+#: woocommerce/global/form-login.php:43 woocommerce/myaccount/form-login.php:42
+#: woocommerce/myaccount/form-login.php:92
+msgid "Password"
+msgstr "Wachtwoord"
+
+#: woocommerce/global/form-login.php:39
+#: woocommerce/myaccount/form-lost-password.php:28
+msgid "Username or email"
+msgstr "Gebruikersnaam of e-mail"
+
+#: woocommerce/checkout/payment.php:44
+msgid "Update totals"
+msgstr "Update totalen"
+
+#. translators: $1 and $2 opening and closing emphasis tags respectively
+#: woocommerce/checkout/payment.php:42
+msgid "Since your browser does not support JavaScript, or it is disabled, please ensure you click the %1$sUpdate Totals%2$s button before placing your order. You may be charged more than the amount stated above if you fail to do so."
+msgstr "Aangezien je browser geen JavaScript ondersteunt of uitgeschakeld is, dien je ervoor te zorgen dat je op het %1$sUpdate totalen%2$s knop voordat je je bestelling plaatst. Als je dit niet doet, kan het zijn dat je meer in rekening wordt gebracht dan hierboven vermeld."
+
+#: woocommerce/checkout/payment.php:33
+msgid "Please fill in your details above to see available payment methods."
+msgstr "Vul je gegevens hierboven in om de beschikbare betalingsmethoden te zien."
+
+#: woocommerce/checkout/payment.php:33
+msgid "Sorry, it seems that there are no available payment methods for your state. Please contact us if you require assistance or wish to make alternate arrangements."
+msgstr "Het lijkt erop dat er geen beschikbare betaalmethoden zijn voor je staat. Neem contact met ons op als je hulp nodig hebt of als je alternatieve afspraken wil maken."
+
+#: woocommerce/checkout/form-pay.php:79
+msgid "Sorry, it seems that there are no available payment methods for your location. Please contact us if you require assistance or wish to make alternate arrangements."
+msgstr "Het lijkt erop dat er geen beschikbare betaalmethoden zijn voor je locatie. Neem contact met ons op als je hulp nodig hebt of als je alternatieve afspraken wil maken."
+
+#: woocommerce/checkout/form-pay.php:29
+msgid "Totals"
+msgstr "Totalen"
+
+#: woocommerce/checkout/form-pay.php:28
+msgid "Qty"
+msgstr "Aantal"
+
+#: woocommerce/checkout/form-coupon.php:26
+msgid "Click here to enter your code"
+msgstr "Klik hier om je code in te voeren"
+
+#: woocommerce/checkout/form-coupon.php:26
+msgid "Have a coupon?"
+msgstr "Heb je een waardebon?"
+
+#: woocommerce/cart/proceed-to-checkout-button.php:25
+msgid "Proceed to checkout"
+msgstr "Ga naar afrekenen"
+
+#: woocommerce/cart/cart.php:33 woocommerce/cart/cart.php:125
+msgid "Subtotal"
+msgstr "Subtotaal"
+
+#: woocommerce/cart/cart.php:148
+msgid "Update cart"
+msgstr "Update winkelwagen"
+
+#: woocommerce/cart/cart.php:143 woocommerce/checkout/form-coupon.php:34
+msgid "Coupon code"
+msgstr "Waardebon code"
+
+#: woocommerce/cart/cart.php:143
+msgid "Coupon:"
+msgstr "Waardebon:"
+
+#: woocommerce/cart/cart.php:92
+msgid "Available on backorder"
+msgstr "Beschikbaar op nalevering"
+
+#: woocommerce/cart/cart.php:56
+msgid "Remove this item"
+msgstr "Verwijder dit item"
+
+#: woocommerce/myaccount/my-orders.php:17
+msgid "Total"
+msgstr "Totaal"
+
+#: woocommerce/cart/cart.php:32 woocommerce/cart/cart.php:103
+msgid "Quantity"
+msgstr "Aantal stuks"
+
+#: woocommerce/cart/cart.php:31 woocommerce/cart/cart.php:97
+msgid "Price"
+msgstr "Prijs"
+
+#: woocommerce/cart/cart.php:30 woocommerce/cart/cart.php:77
+#: woocommerce/checkout/form-pay.php:27
+msgid "Product"
+msgstr "Product"
+
+#: woocommerce/cart/cart-empty.php:36
+msgid "Return to shop"
+msgstr "Ga terug naar de winkel"
+
+#: inc/widgets.php:115
+msgid "Left Sidebar"
+msgstr "Zijbalk links"
+
+#: inc/widgets.php:103
+msgid "Right Sidebar"
+msgstr "Zijbalk rechts"
+
+#: inc/template-tags.php:216
+msgid "Post navigation"
+msgstr "Bericht navigatie"
+
+#: inc/customizer.php:126
+msgid "No sidebar"
+msgstr "Geen zijbalk"
+
+#: inc/customizer.php:125
+msgid "Left & Right sidebars"
+msgstr "Linker & rechter zijbalken"
+
+#: inc/customizer.php:124
+msgid "Left sidebar"
+msgstr "Zijbalk links"
+
+#: inc/customizer.php:123
+msgid "Right sidebar"
+msgstr "Zijbalk rechts"
+
+#: inc/customizer.php:113
+msgid "Sidebar Positioning"
+msgstr "Zijbalk positionering"
+
+#: inc/customizer.php:91
+msgid "Full width container"
+msgstr "Container over de volledige breedte"
+
+#: inc/customizer.php:90
+msgid "Fixed width container"
+msgstr "Container met vaste breedte"
+
+#: inc/customizer.php:85
+msgid "Choose between Bootstrap's container and container-fluid"
+msgstr "Kies tussen de container van Bootstrap en de container vloeiend"
+
+#: inc/customizer.php:84
+msgid "Container Width"
+msgstr "Container breedte"
+
+#: inc/customizer.php:44
+msgid "Container width and sidebar defaults"
+msgstr "Standaardinstellingen voor containerbreedte en zijbalk"
+
+#: inc/customizer.php:42
+msgid "Theme Layout Settings"
+msgstr "Instellingen voor thema lay-out"
+
+#: inc/deprecated.php:87
+msgid "in"
+msgstr "in"
+
+#. Template Name of the theme
+msgid "Blank Page Template"
+msgstr "Blank Page Template"
+
+#. translators: Theme version
+#: inc/hooks.php:44
+msgid "Version: %1$s"
+msgstr "Versie: %1$s"
+
+#. translators: %s: Name of current post
+#: inc/template-tags.php:194
+msgid "Edit %s"
+msgstr "Bewerk %s"
+
+#: inc/deprecated.php:85
+msgid "Posts by"
+msgstr "Berichten van"
+
+#: inc/deprecated.php:84
+msgid "Profile"
+msgstr "Profiel"
+
+#: inc/deprecated.php:83
+msgid "About:"
+msgstr "Over:"
+
+#. Template Name of the theme
+msgid "Empty Page Template"
+msgstr "Empty Page Template"
+
+#. Template Name of the theme
+msgid "Full Width Page"
+msgstr "Full Width Page"
+
+#. translators: %s: query term
+#: search.php:36
+msgid "Search Results for: %s"
+msgstr "Zoekresultaten voor: %s"
+
+#: inc/template-tags.php:244
+msgid "Pages:"
+msgstr "Pagina's:"
+
+#: loop-templates/content-none.php:46
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr "Het lijkt erop dat we niet kunnen vinden wat je zoekt. Misschien kan zoeken helpen."
+
+#: loop-templates/content-none.php:38
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr "Er kwam niets kwam overeen met je zoektermen. Probeer het opnieuw met een aantal andere keywords."
+
+#. translators: 1: Link to WP admin new post page.
+#: loop-templates/content-none.php:30
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr "Klaar om je eerste bericht te publiceren? <a href=\"%1$s\">Ga hier aan de slag</a>."
+
+#: loop-templates/content-none.php:18
+msgid "Nothing Found"
+msgstr "Niets gevonden"
+
+#: inc/widgets.php:163
+msgid "Footer Full"
+msgstr "Footer volledig"
+
+#: inc/widgets.php:127
+msgid "Hero Slider"
+msgstr "Hero slider"
+
+#: inc/deprecated.php:88 woocommerce/myaccount/my-address.php:59
+msgid "Edit"
+msgstr "Bewerk"
+
+#: inc/template-tags.php:73
+msgid "% Comments"
+msgstr "% reacties"
+
+#: inc/template-tags.php:73
+msgid "1 Comment"
+msgstr "1 reactie"
+
+#: inc/template-tags.php:73
+msgid "Leave a comment"
+msgstr "Laat een reactie achter"
+
+#. translators: %s: Categories of current post
+#: inc/template-tags.php:62
+msgid "Posted in %s"
+msgstr "Geplaatst in %s"
+
+#. translators: used between list items, there is a space after the comma
+#. translators: used between list items, there is a space after the comma
+#: inc/template-tags.php:59 inc/template-tags.php:65
+msgid ", "
+msgstr ", "
+
+#: inc/template-tags.php:42
+msgctxt "post author"
+msgid "by"
+msgstr "door"
+
+#: inc/template-tags.php:33
+msgctxt "post date"
+msgid "Posted on"
+msgstr "Geplaatst op"
+
+#: inc/extras.php:277
+msgid "Read More..."
+msgstr "Lees verder…"
+
+#: inc/setup.php:49
+msgid "Primary Menu"
+msgstr "Primair menu"
+
+#: author.php:52
+msgid "Website"
+msgstr "Site"
+
+#: header.php:31
+msgid "Skip to content"
+msgstr "Doorgaan naar inhoud"
+
+#. translators: 1: Theme name, 2: Theme author
+#: inc/hooks.php:38
+msgid "Theme: %1$s by %2$s."
+msgstr "Thema: %1$s door %2$s."
+
+#. translators: WordPress
+#: inc/hooks.php:33
+msgid "Proudly powered by %s"
+msgstr "Met trots mogelijk gemaakt door %s"
+
+#: inc/hooks.php:30
+msgid "https://wordpress.org/"
+msgstr "https://wordpress.org/"
+
+#: inc/custom-comments.php:102
+msgid "Comments are closed."
+msgstr "Reacties zijn gesloten."
+
+#: inc/template-tags.php:177
+msgid "Newer Comments &rarr;"
+msgstr "Nieuwere reacties &rarr;"
+
+#: inc/template-tags.php:171
+msgid "&larr; Older Comments"
+msgstr "&larr; oudere reacties"
+
+#: inc/template-tags.php:167
+msgid "Comment navigation"
+msgstr "Reactie navigatie"
+
+#. translators: 1: number of comments, 2: post title
+#: comments.php:43
+msgctxt "comments title"
+msgid "%1$s thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] "%1$s gedachte over &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s gedachten over &ldquo;%2$s&rdquo;"
+
+#. translators: %1$s: smiley
+#: 404.php:69
+msgid "Try looking in the monthly archives. %1$s"
+msgstr "Kijk eens in de maandelijkse archieven. %1$s"
+
+#: 404.php:46
+msgid "Most Used Categories"
+msgstr "Meest gebruikte categorieën"
+
+#: inc/deprecated.php:80
+msgid "It looks like nothing was found at this location. Maybe try one of the links below or a search?"
+msgstr "Het lijkt erop dat er op deze locatie niets is gevonden. Misschien een van de onderstaande links proberen of een zoekopdracht?"
+
+#: 404.php:30
+msgid "Oops! That page can&rsquo;t be found."
+msgstr "Die pagina kon niet gevonden worden"
+
+#. Author URI of the theme
+msgid "https://howarddc.com"
+msgstr "https://howarddc.com"
+
+#. Author of the theme
+msgid "Howard Development &amp; Consulting"
+msgstr "Howard Development &amp; Consulting"
+
+#. Theme URI of the theme
+#: inc/hooks.php:40
+msgid "https://understrap.com"
+msgstr "https://understrap.com"
