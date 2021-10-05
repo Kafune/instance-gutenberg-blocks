@@ -1,0 +1,23 @@
+{
+    "name": "kachung/gutenberg-understrap-research",
+    "type": "project",
+    "version": "5.0",
+    "config": {
+        "vendor-dir": "wp-content/vendor"
+    },
+    "repositories": [
+        {
+            "type":"composer",
+            "url":"https://wpackagist.org"
+        }
+    ],
+    "require": {
+        "roots/wordpress": ">=5.8.1"
+    },
+    "extra": {
+        "installer-paths": {
+            "wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+            "wp-content/themes/{$name}/": ["type:wordpress-theme"]
+        }
+    }
+}

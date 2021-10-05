@@ -37,33 +37,28 @@ import "./editor.scss";
  */
 
 //more imports
-import React, { useEffect } from "react";
+import React from "react";
 
 export default function Edit(props) {
 	const ALLOWED_MEDIA_TYPES = ["image"];
 
 	const { attributes, setAttributes } = props;
 
-	const onSelectMedia = (media) =>
+	const onSelectMedia = media =>
 		props.setAttributes({
 			mediaId: Number(media.id),
 			mediaUrl: String(media.url),
 		});
 
-	const onChangeParagraphContent = (newParagraphContent) =>
-		props.setAttributes({ pContent: newParagraphContent });
+	const blockProps = useBlockProps({
+		className: "wp-block-instance-text-image",
+	})
 
-	const onChangeHeadingContent = (newHeadingContent) =>
-		props.setAttributes({ headingContent: newHeadingContent });
-
-	const onChangeAlignment = (newAlignment) =>
-		props.setAttributes({ alignment: newAlignment });
+	const allowedBlocks = ['core/heading', 'core/paragraph', 'core/list']
 
 	return (
 		<div
-			{...useBlockProps({
-				className: "wp-block-instance-text-image",
-			})}
+			{...blockProps}
 		>
 			<MediaUploadCheck>
 				<MediaUpload
@@ -85,7 +80,9 @@ export default function Edit(props) {
 				/>
 			</MediaUploadCheck>
 			<div>
-				<InnerBlocks />
+				<InnerBlocks 
+					allowedBlocks={allowedBlocks}
+				/>
 			</div>
 		</div>
 	);

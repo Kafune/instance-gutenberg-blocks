@@ -29,11 +29,13 @@ import React, { useState } from "react";
 export default function Save(props) {
 	const { attributes, setAttributes } = props;
 
+	const blockProps = useBlockProps.save({
+		className: "wp-block-instance-text-image",
+	})
+
 	return (
 		<div
-			{...useBlockProps.save({
-				className: "wp-block-instance-text-image",
-			})}
+			{...blockProps}
 		>
 			<img src={props.attributes.mediaUrl} />
 			<div>
