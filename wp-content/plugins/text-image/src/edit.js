@@ -18,8 +18,10 @@ import {
 	MediaPlaceholder,
 	InnerBlocks,
 	BlockControls,
+	InspectorControls,
 } from "@wordpress/block-editor";
-import { Button, Toolbar } from "@wordpress/components";
+import { Button, Toolbar, ToolbarButton } from "@wordpress/components";
+import { pullLeft, update } from "@wordpress/icons";
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -66,30 +68,39 @@ export default function Edit(props) {
 
 	return [
 		<div {...blockProps}>
-			<MediaUploadCheck>
-				<MediaUpload
-					onSelect={onSelectMedia}
-					allowedTypes={ALLOWED_MEDIA_TYPES}
-					render={({ open }) => {
-						return (
-							<div>
-								{props.attributes.mediaId != 0 ? (
-									<>
-										<img src={props.attributes.mediaUrl} />
-										<Button className="bg-warning" onClick={open}>Change image</Button>
-										<Button className="bg-danger" onClick={removeMedia}>Remove image</Button>
-									</>
-								) : (
-									<Button onClick={open}>Open Media Library</Button>
-								)}
-							</div>
-						);
-					}}
-				/>
-			</MediaUploadCheck>
-			<div>
+				<MediaUploadCheck>
+					<MediaUpload
+						onSelect={onSelectMedia}
+						allowedTypes={ALLOWED_MEDIA_TYPES}
+						render={({ open }) => {
+							return (
+								<>
+									{props.attributes.mediaId != 0 ? (
+										<div>
+											<div>
+												<img
+													src={props.attributes.mediaUrl}
+													className="img-fluid"
+												/>
+											</div>
+											<div>
+												<Button className="bg-warning" onClick={open}>
+													Change image
+												</Button>
+												<Button className="bg-danger" onClick={removeMedia}>
+													Remove image
+												</Button>
+											</div>
+										</div>
+									) : (
+										<Button onClick={open}>Open Media Library</Button>
+									)}
+								</>
+							);
+						}}
+					/>
+				</MediaUploadCheck>
 				<InnerBlocks allowedBlocks={allowedBlocks} />
-			</div>
 		</div>,
 	];
 }
