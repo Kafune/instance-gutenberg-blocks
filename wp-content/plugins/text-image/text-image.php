@@ -24,3 +24,10 @@ function gutenberg_understrap_text_image_block_init() {
 	register_block_type( __DIR__ );
 }
 add_action( 'init', 'gutenberg_understrap_text_image_block_init' );
+
+//add bootstrap
+function enqueue_bootstrap() {
+	wp_enqueue_style( 'child-understrap-styles', get_stylesheet_directory_uri() . '/css/child-theme.min.css');
+    wp_enqueue_script( 'child-understrap-scripts', get_stylesheet_directory_uri() . '/js/child-theme.min.js');
+}
+add_action( 'enqueue_block_editor_assets', 'enqueue_bootstrap' );
