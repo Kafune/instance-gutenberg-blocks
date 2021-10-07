@@ -11,8 +11,6 @@
 	align-items: center;
 	img {
 		margin: 15px 15px 15px 0;
-		max-width: 500px;
-		max-height: 500px;
 	}
 	p {
 		font-size: 20px;
@@ -21,7 +19,7 @@
 		background-color: #48f542;
 		font-weight: bold;
 	}
-	div {
-		flex-direction: column;
+	.text-column {
+		align-self: center;
 	}
 }

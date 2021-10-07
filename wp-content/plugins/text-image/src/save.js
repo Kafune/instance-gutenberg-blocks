@@ -24,22 +24,22 @@ import { InnerBlocks, RichText, useBlockProps } from "@wordpress/block-editor";
  */
 
 // Custom imports
-import React, { useState } from "react";
+import React from "react";
 
 export default function Save(props) {
-	const { attributes, setAttributes } = props;
-
 	const blockProps = useBlockProps.save({
-		className: "wp-block-instance-text-image",
-	})
+		className: "wp-block-instance-text-image container",
+	});
 
 	return (
-		<div
-			{...blockProps}
-		>
-			<img src={props.attributes.mediaUrl} />
-			<div>
-				<InnerBlocks.Content />
+		<div {...blockProps}>
+			<div className="row">
+				<div className="col-sm-6">
+					<img src={props.attributes.mediaUrl} className="img-fluid" />
+				</div>
+				<div className="col-sm-6 text-column">
+					<InnerBlocks.Content />
+				</div>
 			</div>
 		</div>
 	);

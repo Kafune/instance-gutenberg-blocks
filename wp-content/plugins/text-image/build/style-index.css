@@ -15,8 +15,6 @@
 }
 .wp-block-instance-text-image img {
   margin: 15px 15px 15px 0;
-  max-width: 500px;
-  max-height: 500px;
 }
 .wp-block-instance-text-image p {
   font-size: 20px;
@@ -25,8 +23,9 @@
   background-color: #48f542;
   font-weight: bold;
 }
-.wp-block-instance-text-image div {
-  flex-direction: column;
+.wp-block-instance-text-image .text-column {
+  -ms-grid-row-align: center;
+      align-self: center;
 }
 
 /*# sourceMappingURL=style-index.css.map*/

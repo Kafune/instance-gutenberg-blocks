@@ -45,7 +45,7 @@ import React from "react";
 export default function Edit(props) {
 	const ALLOWED_MEDIA_TYPES = ["image"];
 
-	const { attributes, setAttributes } = props;
+	// const { attributes, setAttributes } = props;
 
 	const onSelectMedia = (media) =>
 		props.setAttributes({
@@ -61,13 +61,14 @@ export default function Edit(props) {
 	};
 
 	const blockProps = useBlockProps({
-		className: "wp-block-instance-text-image",
+		className: "wp-block-instance-text-image container",
 	});
 
 	const allowedBlocks = ["core/heading", "core/paragraph", "core/list"];
 
 	return [
 		<div {...blockProps}>
+			<div className="row w-100">
 				<MediaUploadCheck>
 					<MediaUpload
 						onSelect={onSelectMedia}
@@ -76,31 +77,38 @@ export default function Edit(props) {
 							return (
 								<>
 									{props.attributes.mediaId != 0 ? (
-										<div>
-											<div>
-												<img
-													src={props.attributes.mediaUrl}
-													className="img-fluid"
-												/>
-											</div>
-											<div>
-												<Button className="bg-warning" onClick={open}>
-													Change image
-												</Button>
-												<Button className="bg-danger" onClick={removeMedia}>
-													Remove image
-												</Button>
+										<div className="col-sm-6">
+											<div className="row">
+												<div className="col-sm-12">
+													<img
+														src={props.attributes.mediaUrl}
+														className="img-fluid"
+													/>
+												</div>
+												<div className="col-sm-12">
+													<Button className="bg-warning" onClick={open}>
+														Change image
+													</Button>
+													<Button className="bg-danger" onClick={removeMedia}>
+														Remove image
+													</Button>
+												</div>
 											</div>
 										</div>
 									) : (
-										<Button onClick={open}>Open Media Library</Button>
+										<div className="col-sm-6">
+											<Button onClick={open}>Open Media Library</Button>
+										</div>
 									)}
 								</>
 							);
 						}}
 					/>
 				</MediaUploadCheck>
-				<InnerBlocks allowedBlocks={allowedBlocks} />
+				<div className="col-sm-6 text-column">
+					<InnerBlocks allowedBlocks={allowedBlocks} />
+				</div>
+			</div>
 		</div>,
 	];
 }
