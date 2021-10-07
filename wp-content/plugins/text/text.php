@@ -24,3 +24,4 @@ function gutenberg_understrap_text_block_init() {
 	register_block_type( __DIR__ );
 }
 add_action( 'init', 'gutenberg_understrap_text_block_init' );
+

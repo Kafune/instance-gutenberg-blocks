@@ -61,7 +61,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Edit(props) {
-  const ALLOWED_MEDIA_TYPES = ["image"]; // const { attributes, setAttributes } = props;
+  const ALLOWED_MEDIA_TYPES = ["image"];
 
   const onSelectMedia = media => props.setAttributes({
     mediaId: Number(media.id),
@@ -76,9 +76,9 @@ function Edit(props) {
   };
 
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
-    className: "wp-block-instance-text-image container"
+    className: "container"
   });
-  const allowedBlocks = ["core/heading", "core/paragraph", "core/list"];
+  const allowedBlocks = ["core/heading", "core/paragraph", "core/list", "gutenberg-understrap/text"];
   return [(0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "row w-100"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUpload, {

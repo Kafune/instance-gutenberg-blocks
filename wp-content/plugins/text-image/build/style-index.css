@@ -7,23 +7,23 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
-.wp-block-instance-text-image {
+.wp-block-gutenberg-understrap-text-image {
   color: #0065F2;
   margin: 60px 0;
   display: flex;
   align-items: center;
 }
-.wp-block-instance-text-image img {
+.wp-block-gutenberg-understrap-text-image img {
   margin: 15px 15px 15px 0;
 }
-.wp-block-instance-text-image p {
+.wp-block-gutenberg-understrap-text-image p {
   font-size: 20px;
 }
-.wp-block-instance-text-image button {
+.wp-block-gutenberg-understrap-text-image button {
   background-color: #48f542;
   font-weight: bold;
 }
-.wp-block-instance-text-image .text-column {
+.wp-block-gutenberg-understrap-text-image .text-column {
   -ms-grid-row-align: center;
       align-self: center;
 }

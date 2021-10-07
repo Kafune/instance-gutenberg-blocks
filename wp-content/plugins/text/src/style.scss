@@ -5,8 +5,12 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-create-block-text {
-	background-color: #21759b;
-	color: #fff;
+.wp-block-gutenberg-understrap-text {
+	color: #0065F2;
 	padding: 2px;
+	font-family: Helvetica, sans-serif;
+	p {
+		max-width: 540px;
+		margin: 0 auto;
+	}
 }

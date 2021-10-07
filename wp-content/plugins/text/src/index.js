@@ -18,7 +18,7 @@ import './style.scss';
  * Internal dependencies
  */
 import Edit from './edit';
-import save from './save';
+import Save from './save';
 
 /**
  * Every block starts by registering a new block type definition.
@@ -26,6 +26,18 @@ import save from './save';
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
 registerBlockType('gutenberg-understrap/text', {
+	attributes: {
+		content: {
+			type: 'string',
+            source: 'html',
+            selector: 'p',
+		},
+		textAlign: {
+			type: 'string',
+			default: 'left'
+		}
+	},
+	supports: {},
 	/**
 	 * @see ./edit.js
 	 */
@@ -34,5 +46,5 @@ registerBlockType('gutenberg-understrap/text', {
 	/**
 	 * @see ./save.js
 	 */
-	save,
+	save: Save,
 });

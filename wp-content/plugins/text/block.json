@@ -3,8 +3,8 @@
 	"name": "gutenberg-understrap/text",
 	"version": "0.1.0",
 	"title": "Instance - text",
-	"category": "widgets",
-	"icon": "smiley",
+	"category": "text",
+	"icon": "text",
 	"description": "Example block written with ESNext standard and JSX support – build step required.",
 	"supports": {
 		"html": false

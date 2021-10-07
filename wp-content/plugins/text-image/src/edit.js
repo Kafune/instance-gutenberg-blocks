@@ -45,8 +45,6 @@ import React from "react";
 export default function Edit(props) {
 	const ALLOWED_MEDIA_TYPES = ["image"];
 
-	// const { attributes, setAttributes } = props;
-
 	const onSelectMedia = (media) =>
 		props.setAttributes({
 			mediaId: Number(media.id),
@@ -61,10 +59,10 @@ export default function Edit(props) {
 	};
 
 	const blockProps = useBlockProps({
-		className: "wp-block-instance-text-image container",
+		className: "container",
 	});
 
-	const allowedBlocks = ["core/heading", "core/paragraph", "core/list"];
+	const allowedBlocks = ["core/heading", "core/paragraph", "core/list", "gutenberg-understrap/text"];
 
 	return [
 		<div {...blockProps}>

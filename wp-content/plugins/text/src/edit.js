@@ -3,7 +3,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
-import { __ } from '@wordpress/i18n';
+import { __ } from "@wordpress/i18n";
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -11,7 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { AlignmentToolbar, BlockControls, RichText, useBlockProps } from "@wordpress/block-editor";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -19,7 +19,7 @@ import { useBlockProps } from '@wordpress/block-editor';
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
-import './editor.scss';
+import "./editor.scss";
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -29,10 +29,29 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit() {
+export default function Edit(props) {
+	const blockProps = useBlockProps({
+		className: `wp-block-instance-text container text-${props.attributes.textAlign}`,
+	});
+
+	const changeContent = content => {
+		props.setAttributes({ content: content });
+	};
+
 	return (
-		<p {...useBlockProps()}>
-			{__('Text – hello from the editor!', 'text')}
-		</p>
+		<div {...blockProps}>
+			<BlockControls>
+				<AlignmentToolbar
+					value={props.attributes.textAlign}
+					onChange={alignment => props.setAttributes({textAlign: alignment})}
+				/>
+			</BlockControls>
+			<RichText
+				tagName="p"
+				value={props.attributes.content}
+				onChange={changeContent}
+				placeholder="Enter your text here..."
+			/>
+		</div>
 	);
 }
