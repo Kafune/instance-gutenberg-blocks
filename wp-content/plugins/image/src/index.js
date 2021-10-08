@@ -3,7 +3,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-import { registerBlockType } from "@wordpress/blocks";
+import { registerBlockType } from '@wordpress/blocks';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -12,20 +12,20 @@ import { registerBlockType } from "@wordpress/blocks";
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
-import "./style.scss";
+import './style.scss';
 
 /**
  * Internal dependencies
  */
-import Edit from "./edit";
-import Save from "./save";
+import Edit from './edit';
+import Save from './save';
 
 /**
  * Every block starts by registering a new block type definition.
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-registerBlockType("gutenberg-understrap/text-image", {
+registerBlockType('gutenberg-understrap/image', {
 	attributes: {
 		mediaId: {
 			type: "number",
@@ -35,25 +35,12 @@ registerBlockType("gutenberg-understrap/text-image", {
 			type: "string",
 			default: "",
 		},
-		headingContent: {
-			type: "string",
-			source: "html",
-			selector: "h3",
-		},
-		pContent: {
-			type: "string",
-			source: "html",
-			selector: "p",
-		},
-		alignment: {
-			type: "string",
-			default: "none",
-		},
 	},
 	/**
 	 * @see ./edit.js
 	 */
 	edit: Edit,
+
 	/**
 	 * @see ./save.js
 	 */

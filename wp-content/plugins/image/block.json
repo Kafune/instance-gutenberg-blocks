@@ -1,0 +1,16 @@
+{
+	"apiVersion": 2,
+	"name": "gutenberg-understrap/image",
+	"version": "0.1.0",
+	"title": "Instance - image",
+	"category": "widgets",
+	"icon": "menu",
+	"description": "Example block written with ESNext standard and JSX support – build step required.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "image",
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
+	"style": "file:./build/style-index.css"
+}

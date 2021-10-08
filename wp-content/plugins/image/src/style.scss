@@ -1,0 +1,21 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-gutenberg-understrap-image {
+	color: #fff;
+	margin: 60px 0;
+	display: flex;
+	align-items: center;
+	img {
+		// margin: 15px 15px 15px 0;
+	}
+	button {
+		background-color: #48f542;
+		font-weight: bold;
+		text-align: center;
+	}
+}
