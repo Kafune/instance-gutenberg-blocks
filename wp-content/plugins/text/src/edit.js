@@ -34,6 +34,10 @@ export default function Edit(props) {
 		className: `wp-block-instance-text container text-${props.attributes.textAlign}`,
 	});
 
+	const changeTextAlignment = alignment => {
+		props.setAttributes({textAlign: alignment})
+	}
+
 	const changeContent = content => {
 		props.setAttributes({ content: content });
 	};
@@ -43,7 +47,7 @@ export default function Edit(props) {
 			<BlockControls>
 				<AlignmentToolbar
 					value={props.attributes.textAlign}
-					onChange={alignment => props.setAttributes({textAlign: alignment})}
+					onChange={changeTextAlignment}
 				/>
 			</BlockControls>
 			<RichText

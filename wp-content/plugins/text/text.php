@@ -20,8 +20,8 @@
  *
  * @see https://developer.wordpress.org/block-editor/tutorials/block-tutorial/writing-your-first-block-type/
  */
-function gutenberg_understrap_text_block_init() {
+function instance_text_block_init() {
 	register_block_type( __DIR__ );
 }
-add_action( 'init', 'gutenberg_understrap_text_block_init' );
+add_action( 'init', 'instance_text_block_init' );
 

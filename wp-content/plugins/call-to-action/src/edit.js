@@ -20,7 +20,7 @@ import { InspectorControls, RichText, useBlockProps } from "@wordpress/block-edi
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import "./editor.scss";
-import { Button, PanelBody, PanelRow, TextControl } from "@wordpress/components";
+import { Button, PanelBody, PanelRow, TextControl, ToggleControl } from "@wordpress/components";
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -47,6 +47,11 @@ export default function Edit(props) {
 		props.setAttributes({ url: buttonUrl });
 	}
 
+	const toggleTarget = target => {
+		console.log(target)
+		props.setAttributes({ target: target })
+	}
+
 	return (
 		<div {...blockProps}>
 			<InspectorControls>
@@ -63,6 +68,13 @@ export default function Edit(props) {
 							label="Button URL"
 							value={props.attributes.url}
 							onChange={changeButtonUrl}
+						/>
+					</PanelRow>
+					<PanelRow>
+						<ToggleControl
+							label="Open link in new tab: "
+							checked={props.attributes.target}
+							onChange={toggleTarget}
 						/>
 					</PanelRow>
 				</PanelBody>
@@ -83,6 +95,7 @@ export default function Edit(props) {
 					<Button 
 						className="cta-button"
 						href={props.attributes.url}
+						target={props.attributes.target ? "_blank" : "_self"}
 						text={props.attributes.title}
 					/>
 				</div>

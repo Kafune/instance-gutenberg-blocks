@@ -39,6 +39,10 @@ registerBlockType('instance/call-to-action', {
 			attribute: 'href',
 			default: '#',
 		},
+		target: {
+			type: 'boolean',
+			default: false,
+		},
 		title: {
 			type: 'string',
 			default: 'Action',

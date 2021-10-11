@@ -25,7 +25,7 @@ import Save from './save';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-registerBlockType('gutenberg-understrap/image', {
+registerBlockType('instance/media', {
 	attributes: {
 		mediaId: {
 			type: "number",

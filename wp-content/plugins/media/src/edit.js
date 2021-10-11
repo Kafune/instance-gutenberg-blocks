@@ -11,17 +11,8 @@ import { __ } from "@wordpress/i18n";
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import {
-	useBlockProps,
-	MediaUpload,
-	MediaUploadCheck,
-	MediaPlaceholder,
-	InnerBlocks,
-	BlockControls,
-	InspectorControls,
-} from "@wordpress/block-editor";
-import { Button, Toolbar, ToolbarButton } from "@wordpress/components";
-import { pullLeft, update } from "@wordpress/icons";
+import { MediaUpload, MediaUploadCheck, useBlockProps } from "@wordpress/block-editor";
+
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -29,6 +20,7 @@ import { pullLeft, update } from "@wordpress/icons";
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import "./editor.scss";
+import { Button } from "@wordpress/components";
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -38,10 +30,6 @@ import "./editor.scss";
  *
  * @return {WPElement} Element to render.
  */
-
-//more imports
-import React from "react";
-
 export default function Edit(props) {
 	const ALLOWED_MEDIA_TYPES = ["image"];
 
@@ -59,23 +47,23 @@ export default function Edit(props) {
 	};
 
 	const blockProps = useBlockProps({
-		className: "container",
+		className: "wp-block-instance-media container",
 	});
 
-	const allowedBlocks = ["core/heading", "core/paragraph", "core/list", "gutenberg-understrap/text"];
-
-	return [
+	return (
 		<div {...blockProps}>
 			<div className="row w-100">
+				<div className="col">
 				<MediaUploadCheck>
 					<MediaUpload
 						onSelect={onSelectMedia}
 						allowedTypes={ALLOWED_MEDIA_TYPES}
+						autoOpen={true}
 						render={({ open }) => {
 							return (
 								<>
 									{props.attributes.mediaId != 0 ? (
-										<div className="col-sm-6">
+										<div className="col-sm-12">
 											<div className="row">
 												<div className="col-sm-12">
 													<img
@@ -94,7 +82,7 @@ export default function Edit(props) {
 											</div>
 										</div>
 									) : (
-										<div className="col-sm-6">
+										<div className="col-sm-12 text-center">
 											<Button onClick={open}>Open Media Library</Button>
 										</div>
 									)}
@@ -103,10 +91,8 @@ export default function Edit(props) {
 						}}
 					/>
 				</MediaUploadCheck>
-				<div className="col-sm-6 text-column">
-					<InnerBlocks allowedBlocks={allowedBlocks} />
 				</div>
 			</div>
-		</div>,
-	];
+		</div>
+	);
 }

@@ -1,15 +1,15 @@
 {
 	"apiVersion": 2,
-	"name": "gutenberg-understrap/image",
+	"name": "instance/media",
 	"version": "0.1.0",
-	"title": "Instance - image",
+	"title": "Instance - Media",
 	"category": "widgets",
-	"icon": "menu",
+	"icon": "smiley",
 	"description": "Example block written with ESNext standard and JSX support – build step required.",
 	"supports": {
 		"html": false
 	},
-	"textdomain": "image",
+	"textdomain": "media",
 	"editorScript": "file:./build/index.js",
 	"editorStyle": "file:./build/index.css",
 	"style": "file:./build/style-index.css"

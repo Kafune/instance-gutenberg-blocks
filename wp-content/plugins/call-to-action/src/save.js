@@ -12,7 +12,6 @@ import { __ } from "@wordpress/i18n";
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
 import { RichText, useBlockProps } from "@wordpress/block-editor";
-// import React, {useEffect} from "react"
 
 /**
  * The save function defines the way in which the different attributes should
@@ -35,7 +34,7 @@ export default function save(props) {
 					<RichText.Content tagName="h2" value={props.attributes.content} className="cta-text" />
 				</div>
 				<div className="col-sm-4 align-self-center">
-					<a href={props.attributes.url} className="cta-button">{props.attributes.title}</a>
+					<a href={props.attributes.url} className="cta-button" target={props.attributes.target ? "_blank" : "_self"}>{props.attributes.title}</a>
 				</div>
 			</div>
 		</div>

@@ -7,13 +7,12 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
-.wp-block-gutenberg-understrap-text {
-  color: #0065F2;
-  padding: 2px;
+.wp-block-instance-text {
   font-family: Helvetica, sans-serif;
 }
-.wp-block-gutenberg-understrap-text p {
+.wp-block-instance-text p {
   max-width: 540px;
+  color: #0065F2;
   margin: 0 auto;
 }
 

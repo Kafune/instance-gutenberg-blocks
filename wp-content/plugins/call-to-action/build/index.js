@@ -78,6 +78,13 @@ function Edit(props) {
     });
   };
 
+  const toggleTarget = target => {
+    console.log(target);
+    props.setAttributes({
+      target: target
+    });
+  };
+
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
     label: "Button text",
     value: props.attributes.title,
@@ -86,6 +93,10 @@ function Edit(props) {
     label: "Button URL",
     value: props.attributes.url,
     onChange: changeButtonUrl
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ToggleControl, {
+    label: "Open link in new tab: ",
+    checked: props.attributes.target,
+    onChange: toggleTarget
   })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "row w-100"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -101,6 +112,7 @@ function Edit(props) {
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Button, {
     className: "cta-button",
     href: props.attributes.url,
+    target: props.attributes.target ? "_blank" : "_self",
     text: props.attributes.title
   }))));
 }
@@ -160,6 +172,10 @@ __webpack_require__.r(__webpack_exports__);
       attribute: 'href',
       default: '#'
     },
+    target: {
+      type: 'boolean',
+      default: false
+    },
     title: {
       type: 'string',
       default: 'Action'
@@ -214,7 +230,6 @@ __webpack_require__.r(__webpack_exports__);
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
 
- // import React, {useEffect} from "react"
 
 /**
  * The save function defines the way in which the different attributes should
@@ -242,7 +257,8 @@ function save(props) {
     className: "col-sm-4 align-self-center"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
     href: props.attributes.url,
-    className: "cta-button"
+    className: "cta-button",
+    target: props.attributes.target ? "_blank" : "_self"
   }, props.attributes.title))));
 }
 

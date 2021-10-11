@@ -3,7 +3,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
-import { __ } from "@wordpress/i18n";
+import { __ } from '@wordpress/i18n';
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -11,7 +11,7 @@ import { __ } from "@wordpress/i18n";
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { InnerBlocks, RichText, useBlockProps } from "@wordpress/block-editor";
+import { useBlockProps } from '@wordpress/block-editor';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -22,23 +22,16 @@ import { InnerBlocks, RichText, useBlockProps } from "@wordpress/block-editor";
  *
  * @return {WPElement} Element to render.
  */
-
-// Custom imports
-import React from "react";
-
-export default function Save(props) {
+export default function save(props) {
 	const blockProps = useBlockProps.save({
-		className: "wp-block-instance-text-image container",
+		className: "wp-block-instance-media container",
 	});
 
 	return (
 		<div {...blockProps}>
 			<div className="row">
-				<div className="col-sm-6">
+				<div className="col-sm-12">
 					<img src={props.attributes.mediaUrl} className="img-fluid" />
-				</div>
-				<div className="col-sm-6 text-column">
-					<InnerBlocks.Content />
 				</div>
 			</div>
 		</div>

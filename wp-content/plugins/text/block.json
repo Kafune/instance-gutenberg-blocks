@@ -1,6 +1,6 @@
 {
 	"apiVersion": 2,
-	"name": "gutenberg-understrap/text",
+	"name": "instance/text",
 	"version": "0.1.0",
 	"title": "Instance - text",
 	"category": "text",
