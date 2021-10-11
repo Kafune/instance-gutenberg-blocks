@@ -31,10 +31,21 @@ export default function save(props) {
 		<div {...blockProps}>
 			<div className="row">
 				<div className="col-sm-8 text-column">
-					<RichText.Content tagName="h2" value={props.attributes.content} className="cta-text" />
+					<RichText.Content
+						tagName="h2"
+						value={props.attributes.content}
+						className="cta-text"
+					/>
 				</div>
 				<div className="col-sm-4 align-self-center">
-					<a href={props.attributes.url} className="cta-button" target={props.attributes.target ? "_blank" : "_self"}>{props.attributes.title}</a>
+					<a
+						href={props.attributes.url}
+						className="cta-button"
+						target={props.attributes.target ? "_blank" : "_self"}
+						rel="noopener"
+					>
+						{props.attributes.title}
+					</a>
 				</div>
 			</div>
 		</div>

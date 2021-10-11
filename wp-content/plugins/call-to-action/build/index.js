@@ -79,7 +79,6 @@ function Edit(props) {
   };
 
   const toggleTarget = target => {
-    console.log(target);
     props.setAttributes({
       target: target
     });
@@ -258,7 +257,8 @@ function save(props) {
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
     href: props.attributes.url,
     className: "cta-button",
-    target: props.attributes.target ? "_blank" : "_self"
+    target: props.attributes.target ? "_blank" : "_self",
+    rel: "noopener"
   }, props.attributes.title))));
 }
 
