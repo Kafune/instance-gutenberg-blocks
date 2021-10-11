@@ -3,7 +3,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
-import { __ } from "@wordpress/i18n";
+import { __ } from '@wordpress/i18n';
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -11,7 +11,7 @@ import { __ } from "@wordpress/i18n";
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { RichText, useBlockProps } from "@wordpress/block-editor";
+import { useBlockProps } from '@wordpress/block-editor';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -22,32 +22,14 @@ import { RichText, useBlockProps } from "@wordpress/block-editor";
  *
  * @return {WPElement} Element to render.
  */
-export default function save(props) {
+export default function save() {
 	const blockProps = useBlockProps.save({
-		className: "wp-block-instance-call-to-action container",
+		className: "wp-block-instance-headline container",
 	});
 
 	return (
 		<div {...blockProps}>
-			<div className="row">
-				<div className="col-sm-8 text-column">
-					<RichText.Content
-						tagName="h2"
-						value={props.attributes.content}
-						className="cta-text"
-					/>
-				</div>
-				<div className="col-sm-4 align-self-center">
-					<a
-						className="cta-button"
-						href={props.attributes.url}
-						target={props.attributes.target ? "_blank" : "_self"}
-						rel="noopener"
-					>
-						{props.attributes.title}
-					</a>
-				</div>
-			</div>
+			{__('Headline – hello from the saved content!', 'headline')}
 		</div>
 	);
 }
