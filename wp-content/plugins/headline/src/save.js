@@ -29,7 +29,9 @@ export default function save() {
 
 	return (
 		<div {...blockProps}>
-			{__('Headline – hello from the saved content!', 'headline')}
+			<div class="row">
+				<h1>Long headline to turn your visitors into users</h1>
+			</div>
 		</div>
 	);
 }
