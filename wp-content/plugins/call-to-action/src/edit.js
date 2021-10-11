@@ -48,7 +48,6 @@ export default function Edit(props) {
 	}
 
 	const toggleTarget = target => {
-		console.log(target)
 		props.setAttributes({ target: target })
 	}
 
