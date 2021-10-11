@@ -89,16 +89,15 @@ function Edit(props) {
   })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "row w-100"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "col-sm-6"
+    className: "col-sm-8 text-column"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
     tagName: "h2",
     value: props.attributes.content,
-    onChange: changeContent // className={`text-${props.attributes.textAlign}`}
-    ,
+    onChange: changeContent,
     className: "cta-text",
     placeholder: "Enter your text here..."
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "col-sm-6 align-self-center"
+    className: "col-sm-4 align-self-center"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Button, {
     className: "cta-button",
     href: props.attributes.url,
@@ -153,10 +152,6 @@ __webpack_require__.r(__webpack_exports__);
       type: 'string',
       source: 'html',
       selector: 'h2'
-    },
-    textAlign: {
-      type: 'string',
-      default: 'left'
     },
     url: {
       type: 'string',
@@ -219,6 +214,7 @@ __webpack_require__.r(__webpack_exports__);
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
 
+ // import React, {useEffect} from "react"
 
 /**
  * The save function defines the way in which the different attributes should
@@ -237,13 +233,13 @@ function save(props) {
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "row"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "col-sm-6 text-column"
+    className: "col-sm-8 text-column"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText.Content, {
     tagName: "h2",
     value: props.attributes.content,
-    className: `text-${props.attributes.textAlign}`
+    className: "cta-text"
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "col-sm-6 align-self-center"
+    className: "col-sm-4 align-self-center"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
     href: props.attributes.url,
     className: "cta-button"

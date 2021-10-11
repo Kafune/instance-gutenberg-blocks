@@ -70,16 +70,16 @@ export default function Edit(props) {
 
 
 			<div className="row w-100">
-				<div className="col-sm-6 text-column">
+				<div className="col-sm-8 text-column">
 					<RichText
 						tagName="h2"
 						value={props.attributes.content}
 						onChange={changeContent}
-						className={`text-${props.attributes.textAlign}`}
+						className="cta-text"
 						placeholder="Enter your text here..."
 					/>
 				</div>
-				<div className="col-sm-6 align-self-center">
+				<div className="col-sm-4 align-self-center">
 					<Button 
 						className="cta-button"
 						href={props.attributes.url}

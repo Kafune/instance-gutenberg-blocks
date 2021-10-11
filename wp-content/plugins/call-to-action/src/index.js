@@ -32,10 +32,6 @@ registerBlockType('instance/call-to-action', {
             source: 'html',
             selector: 'h2',
 		},
-		textAlign: {
-			type: 'string',
-			default: 'left',
-		},
 		url: {
 			type: 'string',
 			source: 'attribute',
