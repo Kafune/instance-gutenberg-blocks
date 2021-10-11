@@ -1,0 +1,36 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+ $primary: #0065F2;
+
+.wp-block-instance-call-to-action {
+	color: $primary;
+	font-weight: bold;
+	padding: 60px 0;
+	.cta-text {
+		text-align: right;
+	}
+	.cta-button {
+		color: #ffffff;
+		font-size: 16px;
+		background-color: $primary;
+		padding: 12px 30px;
+	}
+}
+
+@media screen and (max-width: 576px) {
+	.wp-block-instance-call-to-action {
+		text-align:center;
+		padding: 30px 0;
+		.text-column {
+			margin-bottom: 30px;
+		}
+		.cta-text {
+			text-align: left;
+		}
+	}
+}
