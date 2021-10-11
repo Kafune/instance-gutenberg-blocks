@@ -166,9 +166,6 @@ __webpack_require__.r(__webpack_exports__);
     },
     url: {
       type: 'string',
-      source: 'attribute',
-      selector: 'button',
-      attribute: 'href',
       default: '#'
     },
     target: {
@@ -254,9 +251,9 @@ function save(props) {
     className: "cta-text"
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "col-sm-4 align-self-center"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    href: props.attributes.url,
+  }, console.log(props.attributes.url), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
     className: "cta-button",
+    href: props.attributes.url,
     target: props.attributes.target ? "_blank" : "_self",
     rel: "noopener"
   }, props.attributes.title))));

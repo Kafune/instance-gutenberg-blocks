@@ -38,9 +38,10 @@ export default function save(props) {
 					/>
 				</div>
 				<div className="col-sm-4 align-self-center">
+					{console.log(props.attributes.url)}
 					<a
-						href={props.attributes.url}
 						className="cta-button"
+						href={props.attributes.url}
 						target={props.attributes.target ? "_blank" : "_self"}
 						rel="noopener"
 					>

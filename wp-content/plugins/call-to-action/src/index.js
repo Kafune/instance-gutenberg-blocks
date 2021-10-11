@@ -34,9 +34,6 @@ registerBlockType('instance/call-to-action', {
 		},
 		url: {
 			type: 'string',
-			source: 'attribute',
-			selector: 'button',
-			attribute: 'href',
 			default: '#',
 		},
 		target: {
