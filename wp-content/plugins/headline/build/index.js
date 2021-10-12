@@ -19,6 +19,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editor.scss */ "./src/editor.scss");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__);
 
 
 /**
@@ -43,6 +45,7 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 
+
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
@@ -52,13 +55,93 @@ __webpack_require__.r(__webpack_exports__);
  * @return {WPElement} Element to render.
  */
 
-function Edit() {
+function Edit(props) {
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
     className: `wp-block-instance-headline container`
   });
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    class: "row text-center"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", null, "Long headline to turn your visitors into users"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "Separated they live in Bookmarksgrove right at the coast of the famous Semantics, large language ocean and many more stuff and more more more")));
+
+  const changeHeading = heading => {
+    props.setAttributes({
+      heading: heading
+    });
+  };
+
+  const changeSubHeading = subHeading => {
+    props.setAttributes({
+      subHeading: subHeading
+    });
+  }; //there might be a more efficient way to handle fetching a button from the attributes.
+
+
+  const changeButtonText = (buttonText, i) => {
+    const buttons = [...props.attributes.buttons];
+    const button = { ...buttons[i]
+    };
+    button.buttonText = buttonText;
+    buttons[i] = button;
+    props.setAttributes({ ...props.attributes,
+      buttons: buttons
+    });
+  };
+
+  const changeButtonUrl = (url, i) => {
+    const buttons = [...props.attributes.buttons];
+    const button = { ...buttons[i]
+    };
+    button.url = url;
+    buttons[i] = button;
+    props.setAttributes({ ...props.attributes,
+      buttons: buttons
+    });
+  };
+
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
+    label: "Primary button text",
+    value: props.attributes.buttons[0].buttonText,
+    onChange: message => changeButtonText(message, 0)
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
+    label: "Primary button URL",
+    value: props.attributes.buttons[0].url,
+    onChange: url => changeButtonUrl(url, 0)
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
+    label: "Secondary button text",
+    value: props.attributes.buttons[1].buttonText,
+    onChange: message => changeButtonText(message, 1)
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
+    label: "Secondary button URL",
+    value: props.attributes.buttons[1].url,
+    onChange: url => changeButtonUrl(url, 1)
+  })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "text-center"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+    tagName: "h1",
+    value: props.attributes.heading,
+    onChange: changeHeading,
+    className: "headline-text",
+    placeholder: "Enter your title..."
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+    tagName: "p",
+    value: props.attributes.subHeading,
+    onChange: changeSubHeading,
+    className: "headline-text",
+    placeholder: "Enter your text..."
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "row btn-row"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "col text-right btn-col"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Button, {
+    className: "headline-button headline-btn-primary",
+    href: props.attributes.buttons[0].url,
+    target: props.attributes.buttons[0].target ? "_blank" : "_self",
+    text: props.attributes.buttons[0].buttonText
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "col text-left btn-col"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Button, {
+    className: "headline-button headline-btn-secondary",
+    href: props.attributes.buttons[1].url,
+    target: props.attributes.buttons[1].target ? "_blank" : "_self",
+    text: props.attributes.buttons[1].buttonText
+  })))));
 }
 
 /***/ }),
@@ -102,7 +185,44 @@ __webpack_require__.r(__webpack_exports__);
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
 
-(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)('instance/headline', {
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)("instance/headline", {
+  attributes: {
+    heading: {
+      type: "string",
+      selector: "h1",
+      default: "test h1"
+    },
+    subHeading: {
+      type: "string",
+      selector: "p",
+      default: "test p"
+    },
+    buttons: {
+      type: 'array',
+      source: 'query',
+      selector: '.btn-row .btn-col button',
+      default: [{
+        "url": "#",
+        "buttonText": "Action"
+      }, {
+        "url": "#",
+        "buttonText": "Action 2"
+      }],
+      query: {
+        url: {
+          type: 'string',
+          source: 'attribute',
+          attribute: 'href'
+        },
+        buttonText: {
+          type: 'string',
+          source: 'attribute',
+          attribute: 'html'
+        }
+      }
+    }
+  },
+
   /**
    * @see ./edit.js
    */
@@ -158,11 +278,19 @@ __webpack_require__.r(__webpack_exports__);
  * @return {WPElement} Element to render.
  */
 
-function save() {
+function save(props) {
   const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps.save({
     className: "wp-block-instance-headline container"
   });
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Headline – hello from the saved content!', 'headline'));
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "text-center"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText.Content, {
+    tagName: "h1",
+    value: props.attributes.heading
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText.Content, {
+    tagName: "p",
+    value: props.attributes.subHeading
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", null, "Long headline to turn your visitors into users")));
 }
 
 /***/ }),
@@ -208,6 +336,16 @@ module.exports = window["wp"]["blockEditor"];
 /***/ (function(module) {
 
 module.exports = window["wp"]["blocks"];
+
+/***/ }),
+
+/***/ "@wordpress/components":
+/*!************************************!*\
+  !*** external ["wp","components"] ***!
+  \************************************/
+/***/ (function(module) {
+
+module.exports = window["wp"]["components"];
 
 /***/ }),
 

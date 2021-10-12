@@ -3,7 +3,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
-import { __ } from '@wordpress/i18n';
+import { __ } from "@wordpress/i18n";
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -11,7 +11,11 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import {
+	InspectorControls,
+	RichText,
+	useBlockProps,
+} from "@wordpress/block-editor";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -19,7 +23,13 @@ import { useBlockProps } from '@wordpress/block-editor';
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
-import './editor.scss';
+import "./editor.scss";
+import {
+	Button,
+	PanelBody,
+	PanelRow,
+	TextControl,
+} from "@wordpress/components";
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -29,16 +39,112 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit() {
+export default function Edit(props) {
 	const blockProps = useBlockProps({
 		className: `wp-block-instance-headline container`,
 	});
 
+	const changeHeading = (heading) => {
+		props.setAttributes({ heading: heading });
+	};
+
+	const changeSubHeading = (subHeading) => {
+		props.setAttributes({ subHeading: subHeading });
+	};
+
+	//there might be a more efficient way to handle fetching a button from the attributes.
+	const changeButtonText = (buttonText, i) => {
+		const buttons = [...props.attributes.buttons];
+		const button = {...buttons[i]};
+		button.buttonText = buttonText;
+		buttons[i] = button;
+
+		props.setAttributes({
+			...props.attributes,
+			buttons: buttons,
+		});
+	};
+
+	const changeButtonUrl = (url, i) => {
+		const buttons = [...props.attributes.buttons];
+		const button = {...buttons[i]};
+		button.url = url;
+		buttons[i] = button;
+
+		props.setAttributes({
+			...props.attributes,
+			buttons: buttons,
+		});
+	};
+
 	return (
 		<div {...blockProps}>
-			<div class="row text-center">
-				<h1>Long headline to turn your visitors into users</h1>
-				<p>Separated they live in Bookmarksgrove right at the coast of the famous Semantics, large language ocean and many more stuff and more more more</p>
+			<InspectorControls>
+				<PanelBody>
+					<PanelRow>
+						<TextControl
+							label="Primary button text"
+							value={props.attributes.buttons[0].buttonText}
+							onChange={message => changeButtonText(message, 0)}
+						/>
+					</PanelRow>
+					<PanelRow>
+						<TextControl
+							label="Primary button URL"
+							value={props.attributes.buttons[0].url}
+							onChange={url => changeButtonUrl(url, 0)}
+						/>
+					</PanelRow>
+					<PanelRow>
+						<TextControl
+							label="Secondary button text"
+							value={props.attributes.buttons[1].buttonText}
+							onChange={message => changeButtonText(message, 1)}
+						/>
+					</PanelRow>
+					<PanelRow>
+						<TextControl
+							label="Secondary button URL"
+							value={props.attributes.buttons[1].url}
+							onChange={url => changeButtonUrl(url, 1)}
+						/>
+					</PanelRow>
+					
+				</PanelBody>
+			</InspectorControls>
+			<div class="text-center">
+				<RichText
+					tagName="h1"
+					value={props.attributes.heading}
+					onChange={changeHeading}
+					className="headline-text"
+					placeholder="Enter your title..."
+				/>
+				<RichText
+					tagName="p"
+					value={props.attributes.subHeading}
+					onChange={changeSubHeading}
+					className="headline-text"
+					placeholder="Enter your text..."
+				/>
+				<div class="row btn-row">
+					<div class="col text-right btn-col">
+						<Button
+							className="headline-button headline-btn-primary"
+							href={props.attributes.buttons[0].url}
+							target={props.attributes.buttons[0].target ? "_blank" : "_self"}
+							text={props.attributes.buttons[0].buttonText}
+						/>
+					</div>
+					<div class="col text-left btn-col">
+						<Button
+							className="headline-button headline-btn-secondary"
+							href={props.attributes.buttons[1].url}
+							target={props.attributes.buttons[1].target ? "_blank" : "_self"}
+							text={props.attributes.buttons[1].buttonText}
+						/>
+					</div>
+				</div>
 			</div>
 		</div>
 	);

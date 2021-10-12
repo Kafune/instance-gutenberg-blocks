@@ -11,7 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { RichText, useBlockProps } from '@wordpress/block-editor';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -22,14 +22,22 @@ import { useBlockProps } from '@wordpress/block-editor';
  *
  * @return {WPElement} Element to render.
  */
-export default function save() {
+export default function save(props) {
 	const blockProps = useBlockProps.save({
 		className: "wp-block-instance-headline container",
 	});
 
 	return (
 		<div {...blockProps}>
-			<div class="row">
+			<div class="text-center">
+				<RichText.Content
+					tagName="h1"
+					value={props.attributes.heading}
+				/>
+				<RichText.Content
+					tagName="p"
+					value={props.attributes.subHeading}
+					/>
 				<h1>Long headline to turn your visitors into users</h1>
 			</div>
 		</div>

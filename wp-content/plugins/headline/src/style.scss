@@ -5,9 +5,24 @@
  * Replace them with your own styles or remove the file completely.
  */
 
+ $primary: #0065F2;
+ $secondary: #ffffff;
+
 .wp-block-instance-headline {
 	color: #fff;
 	background: #bbb5b5;
 	padding: 142px 0;
-	
+	.headline-button {
+		font-size: 16px;
+		padding: 12px 30px;
+	}
+	.headline-btn-primary {
+		background-color: $primary;
+		color: $secondary;
+	}
+	.headline-btn-secondary {
+		background-color: $secondary;
+		color: $primary;
+
+	}
 }

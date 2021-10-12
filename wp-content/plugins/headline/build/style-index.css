@@ -12,5 +12,17 @@
   background: #bbb5b5;
   padding: 142px 0;
 }
+.wp-block-instance-headline .headline-button {
+  font-size: 16px;
+  padding: 12px 30px;
+}
+.wp-block-instance-headline .headline-btn-primary {
+  background-color: #0065F2;
+  color: #ffffff;
+}
+.wp-block-instance-headline .headline-btn-secondary {
+  background-color: #ffffff;
+  color: #0065F2;
+}
 
 /*# sourceMappingURL=style-index.css.map*/
