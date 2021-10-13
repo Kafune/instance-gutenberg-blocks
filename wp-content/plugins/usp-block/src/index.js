@@ -31,24 +31,28 @@ registerBlockType('instance/usp-block', {
 			type: 'array',
 			default: [
 				{
+					number: 1,
 					icon: "test",
 					title: "Feature one",
 					description: "Separated they live in Bookmarksgrove right at the coast of the famous Semantics, large language",
 					link: "#"
 				},
 				{
+					number: 2,
 					icon: "test2",
 					title: "Feature two",
 					description: "Separated they live in Bookmarksgrove right at the coast of the famous Semantics, large language",
 					link: "#"
 				},
 				{
+					number: 3,
 					icon: "test3",
 					title: "Feature three",
 					description: "Separated they live in Bookmarksgrove right at the coast of the famous Semantics, large language",
 					link: "#"
 				},
 				{
+					number: 4,
 					icon: "test3",
 					title: "Feature four",
 					description: "Separated they live in Bookmarksgrove right at the coast of the famous Semantics, large language",

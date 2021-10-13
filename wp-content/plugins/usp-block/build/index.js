@@ -64,7 +64,14 @@ function Edit(props) {
     className: "wp-block-usp-block container"
   });
 
-  const showPanelOptions = i => {};
+  const showPanelOptions = i => {
+    // const reduce = props.attributes.usps.reduce((prev, current) => prev + " " + current);
+    const reduce = props.attributes.usps.reduce((acc, usp) => {
+      return acc + usp.number;
+    }, 0);
+    console.log(reduce);
+    return reduce;
+  };
 
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
     label: "Primary button text",
@@ -130,21 +137,25 @@ __webpack_require__.r(__webpack_exports__);
     usps: {
       type: 'array',
       default: [{
+        number: 1,
         icon: "test",
         title: "Feature one",
         description: "Separated they live in Bookmarksgrove right at the coast of the famous Semantics, large language",
         link: "#"
       }, {
+        number: 2,
         icon: "test2",
         title: "Feature two",
         description: "Separated they live in Bookmarksgrove right at the coast of the famous Semantics, large language",
         link: "#"
       }, {
+        number: 3,
         icon: "test3",
         title: "Feature three",
         description: "Separated they live in Bookmarksgrove right at the coast of the famous Semantics, large language",
         link: "#"
       }, {
+        number: 4,
         icon: "test3",
         title: "Feature four",
         description: "Separated they live in Bookmarksgrove right at the coast of the famous Semantics, large language",

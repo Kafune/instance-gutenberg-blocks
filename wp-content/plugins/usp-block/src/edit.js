@@ -41,7 +41,12 @@ export default function Edit(props) {
 	});
 
 	const showPanelOptions = i => {
-
+		// const reduce = props.attributes.usps.reduce((prev, current) => prev + " " + current);
+		const reduce = props.attributes.usps.reduce((acc, usp) => {
+			return acc + usp.number
+		}, 0)
+		console.log(reduce);
+		return reduce;
 	}
 
 	return (
