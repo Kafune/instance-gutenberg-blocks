@@ -21,6 +21,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editor.scss */ "./src/editor.scss");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
 
 
 /**
@@ -55,104 +57,31 @@ __webpack_require__.r(__webpack_exports__);
  * @return {WPElement} Element to render.
  */
 
+
 function Edit(props) {
+  // const [] = useState();
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
-    className: "wp-block-instance-headline container"
+    className: "wp-block-usp-block container"
   });
 
-  const changeHeading = heading => {
-    props.setAttributes({
-      heading: heading
-    });
-  };
+  const showPanelOptions = i => {};
 
-  const changeSubHeading = subHeading => {
-    props.setAttributes({
-      subHeading: subHeading
-    });
-  };
-
-  const updateProperties = properties => {
-    props.setAttributes({ ...props.attributes,
-      buttons: properties
-    });
-  }; //there might be a more efficient way to handle fetching a button just to adjust a property from the attributes.
-
-
-  const buttons = [...props.attributes.buttons];
-
-  const changeButtonText = (buttonText, i) => {
-    const button = { ...buttons[i]
-    };
-    button.buttonText = buttonText;
-    buttons[i] = button;
-    updateProperties(buttons);
-  };
-
-  const changeButtonUrl = (url, i) => {
-    const button = { ...buttons[i]
-    };
-    button.url = url;
-    buttons[i] = button;
-    updateProperties(buttons);
-  };
-
-  const toggleButtonTarget = (target, i) => {
-    console.log(target);
-    const button = { ...buttons[i]
-    };
-    button.target = target;
-    buttons[i] = button;
-    updateProperties(buttons);
-  };
-
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, null, props.attributes.buttons.map((button, i) => {
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
-      label: button.type + " button text",
-      value: button.buttonText,
-      onChange: message => changeButtonText(message, i)
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
-      label: button.type + " button URL",
-      value: button.url,
-      onChange: url => changeButtonUrl(url, i)
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ToggleControl, {
-      label: "Open link in new tab: ",
-      checked: button.target,
-      onChange: target => toggleButtonTarget(target, i)
-    })));
-  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
+    label: "Primary button text",
+    value: "test",
+    onChange: message => console.log(message)
+  })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     class: "row"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    class: "headline-content"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
-    tagName: "h1",
-    value: props.attributes.heading,
-    onChange: changeHeading,
-    className: "headline-text",
-    placeholder: "Enter your title..."
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
-    tagName: "p",
-    value: props.attributes.subHeading,
-    onChange: changeSubHeading,
-    className: "headline-text",
-    placeholder: "Enter your text..."
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    class: "row"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    class: "col text-right"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Button, {
-    className: "headline-button headline-btn-primary",
-    href: props.attributes.buttons[0].url,
-    target: props.attributes.buttons[0].target ? "_blank" : "_self",
-    text: props.attributes.buttons[0].buttonText
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    class: "col text-left"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Button, {
-    className: "headline-button headline-btn-secondary",
-    href: props.attributes.buttons[1].url,
-    target: props.attributes.buttons[1].target ? "_blank" : "_self",
-    text: props.attributes.buttons[1].buttonText
-  }))))));
+  }, props.attributes.usps.map((usp, i) => {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "col",
+      onClick: () => showPanelOptions(i)
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, usp.title), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+      class: "usp-text"
+    }, usp.description), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: usp.link
+    }, "Read more >"), " ");
+  })));
 }
 
 /***/ }),
@@ -196,32 +125,30 @@ __webpack_require__.r(__webpack_exports__);
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
 
-(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)("instance/headline", {
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)('instance/usp-block', {
   attributes: {
-    heading: {
-      type: "string",
-      selector: "h1",
-      default: "Long headline to turn your visitors into users"
-    },
-    subHeading: {
-      type: "string",
-      selector: "p",
-      default: "Separated they live in Bookmarksgrove right at the coast of the famous Semantics, large language ocean and many more stuff and more more more"
-    },
-    buttons: {
-      type: "array",
+    usps: {
+      type: 'array',
       default: [{
-        type: "Primary",
-        url: "#",
-        buttonText: "Action",
-        alignment: "left",
-        target: false
+        icon: "test",
+        title: "Feature one",
+        description: "Separated they live in Bookmarksgrove right at the coast of the famous Semantics, large language",
+        link: "#"
       }, {
-        type: "Secondary",
-        url: "#",
-        buttonText: "Action",
-        alignment: "right",
-        target: false
+        icon: "test2",
+        title: "Feature two",
+        description: "Separated they live in Bookmarksgrove right at the coast of the famous Semantics, large language",
+        link: "#"
+      }, {
+        icon: "test3",
+        title: "Feature three",
+        description: "Separated they live in Bookmarksgrove right at the coast of the famous Semantics, large language",
+        link: "#"
+      }, {
+        icon: "test3",
+        title: "Feature four",
+        description: "Separated they live in Bookmarksgrove right at the coast of the famous Semantics, large language",
+        link: "#"
       }]
     }
   },
@@ -234,7 +161,7 @@ __webpack_require__.r(__webpack_exports__);
   /**
    * @see ./save.js
    */
-  save: _save__WEBPACK_IMPORTED_MODULE_3__["default"]
+  Save: _save__WEBPACK_IMPORTED_MODULE_3__["default"]
 });
 
 /***/ }),
@@ -283,35 +210,11 @@ __webpack_require__.r(__webpack_exports__);
 
 function save(props) {
   const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps.save({
-    className: "wp-block-instance-headline container"
+    className: "wp-block-instance-text container"
   });
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     class: "row"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    class: "headline-content"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText.Content, {
-    tagName: "h1",
-    value: props.attributes.heading
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText.Content, {
-    tagName: "p",
-    value: props.attributes.subHeading
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    class: "row"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    class: "col text-right"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    href: props.attributes.buttons[0].url,
-    target: props.attributes.buttons[0].target ? "_blank" : "_self",
-    class: "components-button headline-button headline-btn-primary",
-    rel: "noopener"
-  }, props.attributes.buttons[0].buttonText)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    class: "col text-left"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    href: props.attributes.buttons[1].url,
-    target: props.attributes.buttons[1].target ? "_blank" : "_self",
-    class: "components-button headline-button headline-btn-secondary",
-    rel: "noopener"
-  }, props.attributes.buttons[1].buttonText))))));
+  }));
 }
 
 /***/ }),
@@ -337,6 +240,16 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
+
+/***/ }),
+
+/***/ "react":
+/*!************************!*\
+  !*** external "React" ***!
+  \************************/
+/***/ (function(module) {
+
+module.exports = window["React"];
 
 /***/ }),
 
@@ -545,7 +458,7 @@ module.exports = window["wp"]["i18n"];
 /******/ 			return __webpack_require__.O(result);
 /******/ 		}
 /******/ 		
-/******/ 		var chunkLoadingGlobal = self["webpackChunkheadline"] = self["webpackChunkheadline"] || [];
+/******/ 		var chunkLoadingGlobal = self["webpackChunkusp_block"] = self["webpackChunkusp_block"] || [];
 /******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
 /******/ 	}();

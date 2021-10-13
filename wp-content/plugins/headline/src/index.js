@@ -42,13 +42,17 @@ registerBlockType("instance/headline", {
 			type: "array",
 			default: [
 				{
+					type: "Primary",
 					url: "#",
 					buttonText: "Action",
+					alignment: "left",
 					target: false,
 				},
 				{
+					type: "Secondary",
 					url: "#",
 					buttonText: "Action",
+					alignment: "right",
 					target: false,
 				},
 			],

@@ -95,48 +95,33 @@ export default function Edit(props) {
 		<div {...blockProps}>
 			<InspectorControls>
 				<PanelBody>
-					<PanelRow>
-						<TextControl
-							label="Primary button text"
-							value={props.attributes.buttons[0].buttonText}
-							onChange={(message) => changeButtonText(message, 0)}
-						/>
-					</PanelRow>
-					<PanelRow>
-						<TextControl
-							label="Primary button URL"
-							value={props.attributes.buttons[0].url}
-							onChange={(url) => changeButtonUrl(url, 0)}
-						/>
-					</PanelRow>
-					<PanelRow>
-						<ToggleControl
-							label="Open link in new tab: "
-							checked={props.attributes.buttons[0].target}
-							onChange={(target) => toggleButtonTarget(target, 0)}
-						/>
-					</PanelRow>
-					<PanelRow>
-						<TextControl
-							label="Secondary button text"
-							value={props.attributes.buttons[1].buttonText}
-							onChange={(message) => changeButtonText(message, 1)}
-						/>
-					</PanelRow>
-					<PanelRow>
-						<TextControl
-							label="Secondary button URL"
-							value={props.attributes.buttons[1].url}
-							onChange={(url) => changeButtonUrl(url, 1)}
-						/>
-					</PanelRow>
-					<PanelRow>
-						<ToggleControl
-							label="Open link in new tab: "
-							checked={props.attributes.buttons[1].target}
-							onChange={(target) => toggleButtonTarget(target, 1)}
-						/>
-					</PanelRow>
+					{props.attributes.buttons.map((button, i) => {
+						return (
+							<>
+								<PanelRow>
+									<TextControl
+										label={button.type + " button text"}
+										value={button.buttonText}
+										onChange={message => changeButtonText(message, i)}
+									/>
+								</PanelRow>
+								<PanelRow>
+									<TextControl
+										label={button.type + " button URL"}
+										value={button.url}
+										onChange={url => changeButtonUrl(url, i)}
+									/>
+								</PanelRow>
+								<PanelRow>
+									<ToggleControl
+										label="Open link in new tab: "
+										checked={button.target}
+										onChange={target => toggleButtonTarget(target, i)}
+									/>
+								</PanelRow>
+							</>
+						);
+					})}
 				</PanelBody>
 			</InspectorControls>
 			<div class="row">
