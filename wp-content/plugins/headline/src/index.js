@@ -38,31 +38,19 @@ registerBlockType("instance/headline", {
 			default: "test p",
 		},
 		buttons: {
-			type: 'array',
-			source: 'query',
-			selector: '.btn-row .btn-col button',
+			type: "array",
 			default: [
 				{
 					"url": "#", 
 					"buttonText": "Action",
+					"target": false,
 				},
 				{
 					"url": "#", 
 					"buttonText": "Action 2",
+					"target": false,
 				},
 			],
-			query: {
-				url: {
-					type: 'string',
-					source: 'attribute',
-					attribute: 'href',
-				},
-				buttonText: {
-					type: 'string',
-					source: 'attribute',
-					attribute: 'html',
-				}
-			}
 		}
 	},
 	/**

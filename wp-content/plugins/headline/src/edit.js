@@ -29,6 +29,7 @@ import {
 	PanelBody,
 	PanelRow,
 	TextControl,
+	ToggleControl,
 } from "@wordpress/components";
 
 /**
@@ -44,40 +45,53 @@ export default function Edit(props) {
 		className: `wp-block-instance-headline container`,
 	});
 
-	const changeHeading = (heading) => {
+	const changeHeading = heading => {
 		props.setAttributes({ heading: heading });
 	};
 
-	const changeSubHeading = (subHeading) => {
+	const changeSubHeading = subHeading => {
 		props.setAttributes({ subHeading: subHeading });
 	};
+
+	//functions to deep copy attributes for modification
+	const fetchButton = (buttons, index) => {
+		return buttons[index];
+	}
+
+	const updateProperties = properties => {
+		props.setAttributes({
+			...props.attributes,
+			buttons: properties,
+		});
+	}
 
 	//there might be a more efficient way to handle fetching a button just to adjust a property from the attributes.
 	const changeButtonText = (buttonText, i) => {
 		const buttons = [...props.attributes.buttons];
-		const button = {...buttons[i]};
-		button.buttonText = buttonText;
-		buttons[i] = button;
-		
-		props.setAttributes({
-			buttons: buttons,
-		});
+		const button = fetchButton(buttons, i);
 
-		// console.log(props.attributes)
+		const buttonProps = { ...button };
+		buttonProps.buttonText = buttonText;
+		buttons[i] = buttonProps;
+
+		updateProperties(buttons);
 	};
 
 	const changeButtonUrl = (url, i) => {
-		//TODO: fix 
-		console.log(props.attributes)
 		const buttons = [...props.attributes.buttons];
-		const button = {...buttons[i]};
+		const button = { ...buttons[i] };
 		button.url = url;
 		buttons[i] = button;
 
 		props.setAttributes({
+			...props.attributes,
 			buttons: buttons,
 		});
 	};
+
+	const toggleButtonTarget = (target, i) => {
+		console.log(target)
+	}
 
 	return (
 		<div {...blockProps}>
@@ -98,6 +112,13 @@ export default function Edit(props) {
 						/>
 					</PanelRow>
 					<PanelRow>
+						<ToggleControl
+							label="Open link in new tab: "
+							checked={props.attributes.target}
+							onChange={target => toggleButtonTarget(target, 0)}
+						/>
+					</PanelRow>
+					<PanelRow>
 						<TextControl
 							label="Secondary button text"
 							value={props.attributes.buttons[1].buttonText}
@@ -111,7 +132,13 @@ export default function Edit(props) {
 							onChange={url => changeButtonUrl(url, 1)}
 						/>
 					</PanelRow>
-					
+					<PanelRow>
+						<ToggleControl
+							label="Open link in new tab: "
+							checked={props.attributes.target}
+							onChange={target => toggleButtonTarget(target, 1)}
+						/>
+					</PanelRow>
 				</PanelBody>
 			</InspectorControls>
 			<div class="text-center">

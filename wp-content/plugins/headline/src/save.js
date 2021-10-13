@@ -36,22 +36,22 @@ export default function save(props) {
 				<div class="row btn-row">
 					<div class="col text-right btn-col">
 						<a
-							href={"props.attributes.buttons[0].url"}
+							href={props.attributes.buttons[0].url}
 							target="_self"
 							class="components-button headline-button headline-btn-primary"
 							rel="noopener"
 						>
-							{"props.attributes.buttons[0].buttonText"}
+							{props.attributes.buttons[0].buttonText}
 						</a>
 					</div>
 					<div class="col text-left btn-col">
 						<a
-							href={"props.attributes.buttons[1].url"}
+							href={props.attributes.buttons[1].url}
 							target="_self"
 							class="components-button headline-button headline-btn-secondary"
 							rel="noopener"
 						>
-							{"props.attributes.buttons[1].buttonText"}
+							{props.attributes.buttons[1].buttonText}
 						</a>
 					</div>
 				</div>

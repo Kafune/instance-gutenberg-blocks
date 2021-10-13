@@ -70,31 +70,43 @@ function Edit(props) {
     props.setAttributes({
       subHeading: subHeading
     });
+  }; //functions to deep copy attributes for modification
+
+
+  const fetchButton = (buttons, index) => {
+    return buttons[index];
+  };
+
+  const updateProperties = properties => {
+    props.setAttributes({ ...props.attributes,
+      buttons: properties
+    });
   }; //there might be a more efficient way to handle fetching a button just to adjust a property from the attributes.
 
 
   const changeButtonText = (buttonText, i) => {
     const buttons = [...props.attributes.buttons];
-    const button = { ...buttons[i]
+    const button = fetchButton(buttons, i);
+    const buttonProps = { ...button
     };
-    button.buttonText = buttonText;
-    buttons[i] = button;
-    props.setAttributes({
-      buttons: buttons
-    }); // console.log(props.attributes)
+    buttonProps.buttonText = buttonText;
+    buttons[i] = buttonProps;
+    updateProperties(buttons);
   };
 
   const changeButtonUrl = (url, i) => {
-    //TODO: fix 
-    console.log(props.attributes);
     const buttons = [...props.attributes.buttons];
     const button = { ...buttons[i]
     };
     button.url = url;
     buttons[i] = button;
-    props.setAttributes({
+    props.setAttributes({ ...props.attributes,
       buttons: buttons
     });
+  };
+
+  const toggleButtonTarget = (target, i) => {
+    console.log(target);
   };
 
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
@@ -105,6 +117,10 @@ function Edit(props) {
     label: "Primary button URL",
     value: props.attributes.buttons[0].url,
     onChange: url => changeButtonUrl(url, 0)
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ToggleControl, {
+    label: "Open link in new tab: ",
+    checked: props.attributes.target,
+    onChange: target => toggleButtonTarget(target, 0)
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
     label: "Secondary button text",
     value: props.attributes.buttons[1].buttonText,
@@ -113,6 +129,10 @@ function Edit(props) {
     label: "Secondary button URL",
     value: props.attributes.buttons[1].url,
     onChange: url => changeButtonUrl(url, 1)
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ToggleControl, {
+    label: "Open link in new tab: ",
+    checked: props.attributes.target,
+    onChange: target => toggleButtonTarget(target, 1)
   })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     class: "text-center"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
@@ -200,28 +220,16 @@ __webpack_require__.r(__webpack_exports__);
       default: "test p"
     },
     buttons: {
-      type: 'array',
-      source: 'query',
-      selector: '.btn-row .btn-col button',
+      type: "array",
       default: [{
         "url": "#",
-        "buttonText": "Action"
+        "buttonText": "Action",
+        "target": false
       }, {
         "url": "#",
-        "buttonText": "Action 2"
-      }],
-      query: {
-        url: {
-          type: 'string',
-          source: 'attribute',
-          attribute: 'href'
-        },
-        buttonText: {
-          type: 'string',
-          source: 'attribute',
-          attribute: 'html'
-        }
-      }
+        "buttonText": "Action 2",
+        "target": false
+      }]
     }
   },
 
@@ -297,18 +305,18 @@ function save(props) {
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     class: "col text-right btn-col"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    href: "props.attributes.buttons[0].url",
+    href: props.attributes.buttons[0].url,
     target: "_self",
     class: "components-button headline-button headline-btn-primary",
     rel: "noopener"
-  }, "props.attributes.buttons[0].buttonText")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, props.attributes.buttons[0].buttonText)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     class: "col text-left btn-col"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    href: "props.attributes.buttons[1].url",
+    href: props.attributes.buttons[1].url,
     target: "_self",
     class: "components-button headline-button headline-btn-secondary",
     rel: "noopener"
-  }, "props.attributes.buttons[1].buttonText")))));
+  }, props.attributes.buttons[1].buttonText)))));
 }
 
 /***/ }),

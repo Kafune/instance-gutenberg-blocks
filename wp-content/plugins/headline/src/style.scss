@@ -7,10 +7,11 @@
 
  $primary: #0065F2;
  $secondary: #ffffff;
+ $background: #F2F8FF;
 
 .wp-block-instance-headline {
-	color: #fff;
-	background: #bbb5b5;
+	color: $primary;
+	background: $background;
 	padding: 142px 0;
 	.headline-button {
 		font-size: 16px;
