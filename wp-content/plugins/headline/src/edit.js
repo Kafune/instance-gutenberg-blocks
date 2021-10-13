@@ -52,27 +52,29 @@ export default function Edit(props) {
 		props.setAttributes({ subHeading: subHeading });
 	};
 
-	//there might be a more efficient way to handle fetching a button from the attributes.
+	//there might be a more efficient way to handle fetching a button just to adjust a property from the attributes.
 	const changeButtonText = (buttonText, i) => {
 		const buttons = [...props.attributes.buttons];
 		const button = {...buttons[i]};
 		button.buttonText = buttonText;
 		buttons[i] = button;
-
+		
 		props.setAttributes({
-			...props.attributes,
 			buttons: buttons,
 		});
+
+		// console.log(props.attributes)
 	};
 
 	const changeButtonUrl = (url, i) => {
+		//TODO: fix 
+		console.log(props.attributes)
 		const buttons = [...props.attributes.buttons];
 		const button = {...buttons[i]};
 		button.url = url;
 		buttons[i] = button;
 
 		props.setAttributes({
-			...props.attributes,
 			buttons: buttons,
 		});
 	};

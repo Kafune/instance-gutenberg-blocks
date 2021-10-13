@@ -3,7 +3,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
-import { __ } from '@wordpress/i18n';
+import { __ } from "@wordpress/i18n";
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -11,7 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { RichText, useBlockProps } from '@wordpress/block-editor';
+import { RichText, useBlockProps } from "@wordpress/block-editor";
 
 /**
  * The save function defines the way in which the different attributes should
@@ -29,16 +29,32 @@ export default function save(props) {
 
 	return (
 		<div {...blockProps}>
+			{console.log(props.attributes)}
 			<div class="text-center">
-				<RichText.Content
-					tagName="h1"
-					value={props.attributes.heading}
-				/>
-				<RichText.Content
-					tagName="p"
-					value={props.attributes.subHeading}
-					/>
-				<h1>Long headline to turn your visitors into users</h1>
+				<RichText.Content tagName="h1" value={props.attributes.heading} />
+				<RichText.Content tagName="p" value={props.attributes.subHeading} />
+				<div class="row btn-row">
+					<div class="col text-right btn-col">
+						<a
+							href={"props.attributes.buttons[0].url"}
+							target="_self"
+							class="components-button headline-button headline-btn-primary"
+							rel="noopener"
+						>
+							{"props.attributes.buttons[0].buttonText"}
+						</a>
+					</div>
+					<div class="col text-left btn-col">
+						<a
+							href={"props.attributes.buttons[1].url"}
+							target="_self"
+							class="components-button headline-button headline-btn-secondary"
+							rel="noopener"
+						>
+							{"props.attributes.buttons[1].buttonText"}
+						</a>
+					</div>
+				</div>
 			</div>
 		</div>
 	);

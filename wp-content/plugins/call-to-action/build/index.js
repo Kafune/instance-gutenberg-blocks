@@ -251,7 +251,7 @@ function save(props) {
     className: "cta-text"
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "col-sm-4 align-self-center"
-  }, console.log(props.attributes.url), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
     className: "cta-button",
     href: props.attributes.url,
     target: props.attributes.target ? "_blank" : "_self",

@@ -79,7 +79,6 @@ export default function Edit(props) {
 				</PanelBody>
 			</InspectorControls>
 
-
 			<div className="row w-100">
 				<div className="col-sm-8 text-column">
 					<RichText

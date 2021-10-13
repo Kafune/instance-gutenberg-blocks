@@ -70,7 +70,7 @@ function Edit(props) {
     props.setAttributes({
       subHeading: subHeading
     });
-  }; //there might be a more efficient way to handle fetching a button from the attributes.
+  }; //there might be a more efficient way to handle fetching a button just to adjust a property from the attributes.
 
 
   const changeButtonText = (buttonText, i) => {
@@ -79,18 +79,20 @@ function Edit(props) {
     };
     button.buttonText = buttonText;
     buttons[i] = button;
-    props.setAttributes({ ...props.attributes,
+    props.setAttributes({
       buttons: buttons
-    });
+    }); // console.log(props.attributes)
   };
 
   const changeButtonUrl = (url, i) => {
+    //TODO: fix 
+    console.log(props.attributes);
     const buttons = [...props.attributes.buttons];
     const button = { ...buttons[i]
     };
     button.url = url;
     buttons[i] = button;
-    props.setAttributes({ ...props.attributes,
+    props.setAttributes({
       buttons: buttons
     });
   };
@@ -282,7 +284,7 @@ function save(props) {
   const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps.save({
     className: "wp-block-instance-headline container"
   });
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, console.log(props.attributes), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     class: "text-center"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText.Content, {
     tagName: "h1",
@@ -290,7 +292,23 @@ function save(props) {
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText.Content, {
     tagName: "p",
     value: props.attributes.subHeading
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", null, "Long headline to turn your visitors into users")));
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "row btn-row"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "col text-right btn-col"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    href: "props.attributes.buttons[0].url",
+    target: "_self",
+    class: "components-button headline-button headline-btn-primary",
+    rel: "noopener"
+  }, "props.attributes.buttons[0].buttonText")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "col text-left btn-col"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    href: "props.attributes.buttons[1].url",
+    target: "_self",
+    class: "components-button headline-button headline-btn-secondary",
+    rel: "noopener"
+  }, "props.attributes.buttons[1].buttonText")))));
 }
 
 /***/ }),
