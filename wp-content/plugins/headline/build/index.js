@@ -57,7 +57,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function Edit(props) {
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
-    className: `wp-block-instance-headline container`
+    className: "wp-block-instance-headline container"
   });
 
   const changeHeading = heading => {
@@ -70,11 +70,6 @@ function Edit(props) {
     props.setAttributes({
       subHeading: subHeading
     });
-  }; //functions to deep copy attributes for modification
-
-
-  const fetchButton = (buttons, index) => {
-    return buttons[index];
   };
 
   const updateProperties = properties => {
@@ -84,29 +79,31 @@ function Edit(props) {
   }; //there might be a more efficient way to handle fetching a button just to adjust a property from the attributes.
 
 
+  const buttons = [...props.attributes.buttons];
+
   const changeButtonText = (buttonText, i) => {
-    const buttons = [...props.attributes.buttons];
-    const button = fetchButton(buttons, i);
-    const buttonProps = { ...button
+    const button = { ...buttons[i]
     };
-    buttonProps.buttonText = buttonText;
-    buttons[i] = buttonProps;
+    button.buttonText = buttonText;
+    buttons[i] = button;
     updateProperties(buttons);
   };
 
   const changeButtonUrl = (url, i) => {
-    const buttons = [...props.attributes.buttons];
     const button = { ...buttons[i]
     };
     button.url = url;
     buttons[i] = button;
-    props.setAttributes({ ...props.attributes,
-      buttons: buttons
-    });
+    updateProperties(buttons);
   };
 
   const toggleButtonTarget = (target, i) => {
     console.log(target);
+    const button = { ...buttons[i]
+    };
+    button.target = target;
+    buttons[i] = button;
+    updateProperties(buttons);
   };
 
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
@@ -119,7 +116,7 @@ function Edit(props) {
     onChange: url => changeButtonUrl(url, 0)
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ToggleControl, {
     label: "Open link in new tab: ",
-    checked: props.attributes.target,
+    checked: props.attributes.buttons[0].target,
     onChange: target => toggleButtonTarget(target, 0)
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
     label: "Secondary button text",
@@ -131,10 +128,12 @@ function Edit(props) {
     onChange: url => changeButtonUrl(url, 1)
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ToggleControl, {
     label: "Open link in new tab: ",
-    checked: props.attributes.target,
+    checked: props.attributes.buttons[1].target,
     onChange: target => toggleButtonTarget(target, 1)
   })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    class: "text-center"
+    class: "row"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "headline-content"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
     tagName: "h1",
     value: props.attributes.heading,
@@ -148,22 +147,22 @@ function Edit(props) {
     className: "headline-text",
     placeholder: "Enter your text..."
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    class: "row btn-row"
+    class: "row"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    class: "col text-right btn-col"
+    class: "col text-right"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Button, {
     className: "headline-button headline-btn-primary",
     href: props.attributes.buttons[0].url,
     target: props.attributes.buttons[0].target ? "_blank" : "_self",
     text: props.attributes.buttons[0].buttonText
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    class: "col text-left btn-col"
+    class: "col text-left"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Button, {
     className: "headline-button headline-btn-secondary",
     href: props.attributes.buttons[1].url,
     target: props.attributes.buttons[1].target ? "_blank" : "_self",
     text: props.attributes.buttons[1].buttonText
-  })))));
+  }))))));
 }
 
 /***/ }),
@@ -212,23 +211,23 @@ __webpack_require__.r(__webpack_exports__);
     heading: {
       type: "string",
       selector: "h1",
-      default: "test h1"
+      default: "Long headline to turn your visitors into users"
     },
     subHeading: {
       type: "string",
       selector: "p",
-      default: "test p"
+      default: "Separated they live in Bookmarksgrove right at the coast of the famous Semantics, large language ocean and many more stuff and more more more"
     },
     buttons: {
       type: "array",
       default: [{
-        "url": "#",
-        "buttonText": "Action",
-        "target": false
+        url: "#",
+        buttonText: "Action",
+        target: false
       }, {
-        "url": "#",
-        "buttonText": "Action 2",
-        "target": false
+        url: "#",
+        buttonText: "Action",
+        target: false
       }]
     }
   },
@@ -292,8 +291,10 @@ function save(props) {
   const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps.save({
     className: "wp-block-instance-headline container"
   });
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, console.log(props.attributes), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    class: "text-center"
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "row"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "headline-content"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText.Content, {
     tagName: "h1",
     value: props.attributes.heading
@@ -301,22 +302,22 @@ function save(props) {
     tagName: "p",
     value: props.attributes.subHeading
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    class: "row btn-row"
+    class: "row"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    class: "col text-right btn-col"
+    class: "col text-right"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
     href: props.attributes.buttons[0].url,
-    target: "_self",
+    target: props.attributes.buttons[0].target ? "_blank" : "_self",
     class: "components-button headline-button headline-btn-primary",
     rel: "noopener"
   }, props.attributes.buttons[0].buttonText)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    class: "col text-left btn-col"
+    class: "col text-left"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
     href: props.attributes.buttons[1].url,
-    target: "_self",
+    target: props.attributes.buttons[1].target ? "_blank" : "_self",
     class: "components-button headline-button headline-btn-secondary",
     rel: "noopener"
-  }, props.attributes.buttons[1].buttonText)))));
+  }, props.attributes.buttons[1].buttonText))))));
 }
 
 /***/ }),

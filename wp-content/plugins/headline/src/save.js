@@ -29,30 +29,31 @@ export default function save(props) {
 
 	return (
 		<div {...blockProps}>
-			{console.log(props.attributes)}
-			<div class="text-center">
-				<RichText.Content tagName="h1" value={props.attributes.heading} />
-				<RichText.Content tagName="p" value={props.attributes.subHeading} />
-				<div class="row btn-row">
-					<div class="col text-right btn-col">
-						<a
-							href={props.attributes.buttons[0].url}
-							target="_self"
-							class="components-button headline-button headline-btn-primary"
-							rel="noopener"
-						>
-							{props.attributes.buttons[0].buttonText}
-						</a>
-					</div>
-					<div class="col text-left btn-col">
-						<a
-							href={props.attributes.buttons[1].url}
-							target="_self"
-							class="components-button headline-button headline-btn-secondary"
-							rel="noopener"
-						>
-							{props.attributes.buttons[1].buttonText}
-						</a>
+			<div class="row">
+				<div class="headline-content">
+					<RichText.Content tagName="h1" value={props.attributes.heading} />
+					<RichText.Content tagName="p" value={props.attributes.subHeading} />
+					<div class="row">
+						<div class="col text-right">
+							<a
+								href={props.attributes.buttons[0].url}
+								target={props.attributes.buttons[0].target ? "_blank" : "_self"}
+								class="components-button headline-button headline-btn-primary"
+								rel="noopener"
+							>
+								{props.attributes.buttons[0].buttonText}
+							</a>
+						</div>
+						<div class="col text-left">
+							<a
+								href={props.attributes.buttons[1].url}
+								target={props.attributes.buttons[1].target ? "_blank" : "_self"}
+								class="components-button headline-button headline-btn-secondary"
+								rel="noopener"
+							>
+								{props.attributes.buttons[1].buttonText}
+							</a>
+						</div>
 					</div>
 				</div>
 			</div>

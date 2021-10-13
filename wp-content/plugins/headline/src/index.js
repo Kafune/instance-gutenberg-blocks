@@ -30,28 +30,29 @@ registerBlockType("instance/headline", {
 		heading: {
 			type: "string",
 			selector: "h1",
-			default: "test h1",
+			default: "Long headline to turn your visitors into users",
 		},
 		subHeading: {
 			type: "string",
 			selector: "p",
-			default: "test p",
+			default:
+				"Separated they live in Bookmarksgrove right at the coast of the famous Semantics, large language ocean and many more stuff and more more more",
 		},
 		buttons: {
 			type: "array",
 			default: [
 				{
-					"url": "#", 
-					"buttonText": "Action",
-					"target": false,
+					url: "#",
+					buttonText: "Action",
+					target: false,
 				},
 				{
-					"url": "#", 
-					"buttonText": "Action 2",
-					"target": false,
+					url: "#",
+					buttonText: "Action",
+					target: false,
 				},
 			],
-		}
+		},
 	},
 	/**
 	 * @see ./edit.js
