@@ -13,4 +13,12 @@
 	background-color: $background;
 	color: $primary;
 	padding: 2px;
+	button {
+		background-color: #48f542;
+		font-weight: bold;
+	}
+	.usp-icon {
+		max-width: 32px;
+		max-height: 32px;
+	}
 }

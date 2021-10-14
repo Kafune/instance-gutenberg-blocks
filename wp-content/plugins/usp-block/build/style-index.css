@@ -12,5 +12,13 @@
   color: #0065F2;
   padding: 2px;
 }
+.wp-block-usp-block button {
+  background-color: #48f542;
+  font-weight: bold;
+}
+.wp-block-usp-block .usp-icon {
+  max-width: 32px;
+  max-height: 32px;
+}
 
 /*# sourceMappingURL=style-index.css.map*/

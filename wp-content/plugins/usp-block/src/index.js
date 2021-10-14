@@ -3,7 +3,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-import { registerBlockType } from '@wordpress/blocks';
+import { registerBlockType } from "@wordpress/blocks";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -12,54 +12,62 @@ import { registerBlockType } from '@wordpress/blocks';
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
-import './style.scss';
+import "./style.scss";
 
 /**
  * Internal dependencies
  */
-import Edit from './edit';
-import Save from './save';
+import Edit from "./edit";
+import Save from "./save";
 
 /**
  * Every block starts by registering a new block type definition.
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-registerBlockType('instance/usp-block', {
+registerBlockType("instance/usp-block", {
 	attributes: {
 		usps: {
-			type: 'array',
+			type: "array",
 			default: [
 				{
 					number: 1,
-					icon: "test",
+					iconId: 0,
+					iconUrl: "",
 					title: "Feature",
-					description: "Separated they live in Bookmarksgrove right at the coast of the famous Semantics, large language",
-					link: "#"
+					description:
+						"Separated they live in Bookmarksgrove right at the coast of the famous Semantics, large language",
+					url: "#",
 				},
 				{
 					number: 2,
-					icon: "test2",
+					iconId: 0,
+					iconUrl: "",
 					title: "Feature",
-					description: "Separated they live in Bookmarksgrove right at the coast of the famous Semantics, large language",
-					link: "#"
+					description:
+						"Separated they live in Bookmarksgrove right at the coast of the famous Semantics, large language",
+					url: "#",
 				},
 				{
 					number: 3,
-					icon: "test3",
+					iconId: 0,
+					iconUrl: "",
 					title: "Feature",
-					description: "Separated they live in Bookmarksgrove right at the coast of the famous Semantics, large language",
-					link: "#"
+					description:
+						"Separated they live in Bookmarksgrove right at the coast of the famous Semantics, large language",
+					url: "#",
 				},
 				{
 					number: 4,
-					icon: "test3",
+					iconId: 0,
+					iconUrl: "",
 					title: "Feature",
-					description: "Separated they live in Bookmarksgrove right at the coast of the famous Semantics, large language",
-					link: "#"
+					description:
+						"Separated they live in Bookmarksgrove right at the coast of the famous Semantics, large language",
+					url: "#",
 				},
-			]
-		}
+			],
+		},
 	},
 
 	/**

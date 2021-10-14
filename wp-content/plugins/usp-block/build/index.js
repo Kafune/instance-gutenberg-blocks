@@ -21,8 +21,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editor.scss */ "./src/editor.scss");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
 
 
 /**
@@ -56,7 +54,6 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @return {WPElement} Element to render.
  */
-
 
 function Edit(props) {
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
@@ -95,10 +92,11 @@ function Edit(props) {
     if (usps.length < amount) {
       const defaultUSP = {
         number: amount,
-        icon: "test",
+        iconId: 0,
+        iconUrl: "",
         title: "Feature",
         description: "Separated they live in Bookmarksgrove right at the coast of the famous Semantics, large language",
-        link: "#"
+        url: "#"
       };
       filteredUSP.push(defaultUSP);
     }
@@ -106,13 +104,58 @@ function Edit(props) {
     props.setAttributes({ ...props.attributes,
       usps: filteredUSP
     });
+  }; //icon upload
+
+
+  const ALLOWED_MEDIA_TYPES = ["image/svg+xml"];
+
+  const onSelectMedia = (media, i) => {
+    const usp = { ...usps[i]
+    };
+    usp.iconId = media.id;
+    usp.iconUrl = media.url;
+    usps[i] = usp;
+    updateProperties(usps);
   };
 
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
-    label: "Primary button text",
-    value: "test",
-    onChange: message => console.log(message)
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.RangeControl, {
+  const removeMedia = i => {
+    const usp = { ...usps[i]
+    };
+    usp.iconId = 0;
+    usp.iconUrl = "";
+    usps[i] = usp;
+    updateProperties(usps);
+  }; //icon upload
+
+
+  const iconUpload = (usp, i, {
+    open
+  }) => {
+    return usp.iconId != 0 ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "col-sm-6"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "row"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "col-sm-12"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      src: usp.iconUrl,
+      className: "usp-icon"
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "col-sm-12"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Button, {
+      className: "bg-warning",
+      onClick: open
+    }, "Change image"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Button, {
+      className: "bg-danger",
+      onClick: () => removeMedia(i)
+    }, "Remove image")))) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "col-sm-6"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Button, {
+      onClick: open
+    }, "+ SVG Icon"));
+  };
+
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.RangeControl, {
     label: "Amount of USPS",
     onChange: val => adjustUSPAmount(val),
     min: "1",
@@ -123,18 +166,26 @@ function Edit(props) {
   }, props.attributes.usps.map((usp, i) => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       class: "col"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUpload, {
+      onSelect: media => onSelectMedia(media, i),
+      allowedTypes: ALLOWED_MEDIA_TYPES,
+      render: ({
+        open
+      }) => iconUpload(usp, i, {
+        open
+      })
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
       tagName: "h3",
-      value: props.attributes.usps[i].title,
+      value: usp.title,
       onChange: title => changeUSPTitle(title, i),
       placeholder: "Enter your title..."
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
       tagName: "p",
-      value: props.attributes.usps[i].description,
+      value: usp.description,
       onChange: description => changeUSPDescription(description, i),
       placeholder: "Enter your description..."
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-      href: usp.link
+      href: usp.url
     }, "Read more ", ">"));
   })));
 }
@@ -180,34 +231,38 @@ __webpack_require__.r(__webpack_exports__);
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
 
-(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)('instance/usp-block', {
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)("instance/usp-block", {
   attributes: {
     usps: {
-      type: 'array',
+      type: "array",
       default: [{
         number: 1,
-        icon: "test",
+        iconId: 0,
+        iconUrl: "",
         title: "Feature",
         description: "Separated they live in Bookmarksgrove right at the coast of the famous Semantics, large language",
-        link: "#"
+        url: "#"
       }, {
         number: 2,
-        icon: "test2",
+        iconId: 0,
+        iconUrl: "",
         title: "Feature",
         description: "Separated they live in Bookmarksgrove right at the coast of the famous Semantics, large language",
-        link: "#"
+        url: "#"
       }, {
         number: 3,
-        icon: "test3",
+        iconId: 0,
+        iconUrl: "",
         title: "Feature",
         description: "Separated they live in Bookmarksgrove right at the coast of the famous Semantics, large language",
-        link: "#"
+        url: "#"
       }, {
         number: 4,
-        icon: "test3",
+        iconId: 0,
+        iconUrl: "",
         title: "Feature",
         description: "Separated they live in Bookmarksgrove right at the coast of the famous Semantics, large language",
-        link: "#"
+        url: "#"
       }]
     }
   },
@@ -269,11 +324,27 @@ __webpack_require__.r(__webpack_exports__);
 
 function save(props) {
   const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps.save({
-    className: "wp-block-instance-text container"
+    className: "wp-block-instance-usp-block container"
   });
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     class: "row"
-  }));
+  }, console.log(props.attributes.usps), props.attributes.usps.map(usp => {
+    (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "col"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      src: usp.iconUrl,
+      className: "usp-icon"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText.Content, {
+      tagName: "h3",
+      value: usp.title
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText.Content, {
+      tagName: "p",
+      value: usp.description
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: usp.url,
+      rel: "noopener"
+    }, "Read more ", ">"));
+  })));
 }
 
 /***/ }),
@@ -299,16 +370,6 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
-
-/***/ }),
-
-/***/ "react":
-/*!************************!*\
-  !*** external "React" ***!
-  \************************/
-/***/ (function(module) {
-
-module.exports = window["React"];
 
 /***/ }),
 
