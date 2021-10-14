@@ -45,15 +45,15 @@ export default function Edit(props) {
 		className: "wp-block-instance-headline container",
 	});
 
-	const changeHeading = (heading) => {
+	const changeHeading = heading => {
 		props.setAttributes({ heading: heading });
 	};
 
-	const changeSubHeading = (subHeading) => {
+	const changeSubHeading = subHeading => {
 		props.setAttributes({ subHeading: subHeading });
 	};
 
-	const updateProperties = (properties) => {
+	const updateProperties = properties => {
 		props.setAttributes({
 			...props.attributes,
 			buttons: properties,
@@ -82,7 +82,6 @@ export default function Edit(props) {
 	};
 
 	const toggleButtonTarget = (target, i) => {
-		console.log(target);
 		const button = { ...buttons[i] };
 
 		button.target = target;

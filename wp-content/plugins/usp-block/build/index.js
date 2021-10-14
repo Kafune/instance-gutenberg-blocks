@@ -59,35 +59,83 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Edit(props) {
-  // const [] = useState();
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
     className: "wp-block-usp-block container"
-  });
+  }); //there might be a more efficient way to handle fetching a button just to adjust a property from the attributes.
 
-  const showPanelOptions = i => {
-    // const reduce = props.attributes.usps.reduce((prev, current) => prev + " " + current);
-    const reduce = props.attributes.usps.reduce((acc, usp) => {
-      return acc + usp.number;
-    }, 0);
-    console.log(reduce);
-    return reduce;
+  const usps = [...props.attributes.usps];
+
+  const updateProperties = properties => {
+    props.setAttributes({ ...props.attributes,
+      usps: properties
+    });
+  };
+
+  const changeUSPTitle = (title, i) => {
+    const usp = { ...usps[i]
+    };
+    usp.title = title;
+    usps[i] = usp;
+    updateProperties(usps);
+  };
+
+  const changeUSPDescription = (description, i) => {
+    const usp = { ...usps[i]
+    };
+    usp.description = description;
+    usps[i] = usp;
+    updateProperties(usps);
+  };
+
+  const filterUSP = amount => usps.filter(usp => usp.number <= amount);
+
+  const adjustUSPAmount = (amount, i) => {
+    const filteredUSP = filterUSP(amount);
+
+    if (usps.length < amount) {
+      const defaultUSP = {
+        number: amount,
+        icon: "test",
+        title: "Feature",
+        description: "Separated they live in Bookmarksgrove right at the coast of the famous Semantics, large language",
+        link: "#"
+      };
+      filteredUSP.push(defaultUSP);
+    }
+
+    props.setAttributes({ ...props.attributes,
+      usps: filteredUSP
+    });
   };
 
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
     label: "Primary button text",
     value: "test",
     onChange: message => console.log(message)
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.RangeControl, {
+    label: "Amount of USPS",
+    onChange: val => adjustUSPAmount(val),
+    min: "1",
+    max: "4",
+    value: props.attributes.usps.length
   })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     class: "row"
   }, props.attributes.usps.map((usp, i) => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      class: "col",
-      onClick: () => showPanelOptions(i)
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, usp.title), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-      class: "usp-text"
-    }, usp.description), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      class: "col"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+      tagName: "h3",
+      value: props.attributes.usps[i].title,
+      onChange: title => changeUSPTitle(title, i),
+      placeholder: "Enter your title..."
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+      tagName: "p",
+      value: props.attributes.usps[i].description,
+      onChange: description => changeUSPDescription(description, i),
+      placeholder: "Enter your description..."
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
       href: usp.link
-    }, "Read more >"), " ");
+    }, "Read more ", ">"));
   })));
 }
 
@@ -139,25 +187,25 @@ __webpack_require__.r(__webpack_exports__);
       default: [{
         number: 1,
         icon: "test",
-        title: "Feature one",
+        title: "Feature",
         description: "Separated they live in Bookmarksgrove right at the coast of the famous Semantics, large language",
         link: "#"
       }, {
         number: 2,
         icon: "test2",
-        title: "Feature two",
+        title: "Feature",
         description: "Separated they live in Bookmarksgrove right at the coast of the famous Semantics, large language",
         link: "#"
       }, {
         number: 3,
         icon: "test3",
-        title: "Feature three",
+        title: "Feature",
         description: "Separated they live in Bookmarksgrove right at the coast of the famous Semantics, large language",
         link: "#"
       }, {
         number: 4,
         icon: "test3",
-        title: "Feature four",
+        title: "Feature",
         description: "Separated they live in Bookmarksgrove right at the coast of the famous Semantics, large language",
         link: "#"
       }]
