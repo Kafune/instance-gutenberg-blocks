@@ -112,6 +112,7 @@ function Edit(props) {
   const onSelectMedia = (media, i) => {
     const usp = { ...usps[i]
     };
+    console.log(media);
     usp.iconId = media.id;
     usp.iconUrl = media.url;
     usps[i] = usp;
@@ -275,7 +276,7 @@ __webpack_require__.r(__webpack_exports__);
   /**
    * @see ./save.js
    */
-  Save: _save__WEBPACK_IMPORTED_MODULE_3__["default"]
+  save: _save__WEBPACK_IMPORTED_MODULE_3__["default"]
 });
 
 /***/ }),
@@ -327,17 +328,17 @@ function save(props) {
     className: "wp-block-instance-usp-block container"
   });
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    class: "row"
-  }, console.log(props.attributes.usps), props.attributes.usps.map(usp => {
-    (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "row"
+  }, props.attributes.usps.map((usp, i) => {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       class: "col"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
       src: usp.iconUrl,
       className: "usp-icon"
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText.Content, {
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText.Content, {
       tagName: "h3",
       value: usp.title
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText.Content, {
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText.Content, {
       tagName: "p",
       value: usp.description
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {

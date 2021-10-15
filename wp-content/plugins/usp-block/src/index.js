@@ -78,5 +78,5 @@ registerBlockType("instance/usp-block", {
 	/**
 	 * @see ./save.js
 	 */
-	Save: Save,
+	save: Save,
 });

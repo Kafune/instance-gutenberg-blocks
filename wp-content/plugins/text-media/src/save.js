@@ -23,10 +23,7 @@ import { InnerBlocks, useBlockProps } from "@wordpress/block-editor";
  * @return {WPElement} Element to render.
  */
 
-// Custom imports
-import React from "react";
-
-export default function Save(props) {
+export default function save(props) {
 	const blockProps = useBlockProps.save({
 		className: "wp-block-instance-text-image container",
 	});

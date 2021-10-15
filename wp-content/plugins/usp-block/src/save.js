@@ -11,7 +11,7 @@ import { __ } from "@wordpress/i18n";
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps } from "@wordpress/block-editor";
+import { RichText, useBlockProps } from "@wordpress/block-editor";
 
 /**
  * The save function defines the way in which the different attributes should
@@ -22,6 +22,7 @@ import { useBlockProps } from "@wordpress/block-editor";
  *
  * @return {WPElement} Element to render.
  */
+
 export default function save(props) {
 	const blockProps = useBlockProps.save({
 		className: "wp-block-instance-usp-block container",
@@ -29,15 +30,18 @@ export default function save(props) {
 
 	return (
 		<div {...blockProps}>
-			<div class="row">
-				{console.log(props.attributes.usps)}
-				{props.attributes.usps.map((usp) => {
-					<div class="col">
-						<img src={usp.iconUrl} className="usp-icon" />
-						<RichText.Content tagName="h3" value={usp.title} />
-						<RichText.Content tagName="p" value={usp.description} />
-						<a href={usp.url} rel="noopener">Read more {">"}</a>
-					</div>;
+			<div className="row">
+				{props.attributes.usps.map((usp, i) => {
+					return (
+						<div class="col">
+							<img src={usp.iconUrl} className="usp-icon" />
+							<RichText.Content tagName="h3" value={usp.title} />
+							<RichText.Content tagName="p" value={usp.description} />
+							<a href={usp.url} rel="noopener">
+								Read more {">"}
+							</a>
+						</div>
+					);
 				})}
 			</div>
 		</div>

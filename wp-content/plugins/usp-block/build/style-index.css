@@ -7,16 +7,16 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
-.wp-block-usp-block {
+.wp-block-instance-usp-block {
   background-color: #F2F8FF;
   color: #0065F2;
   padding: 2px;
 }
-.wp-block-usp-block button {
+.wp-block-instance-usp-block button {
   background-color: #48f542;
   font-weight: bold;
 }
-.wp-block-usp-block .usp-icon {
+.wp-block-instance-usp-block .usp-icon {
   max-width: 32px;
   max-height: 32px;
 }

@@ -107,6 +107,8 @@ export default function Edit(props) {
 	const onSelectMedia = (media, i) => {
 		const usp = { ...usps[i] };
 
+		console.log(media)
+
 		usp.iconId = media.id;
 		usp.iconUrl = media.url;
 		usps[i] = usp;
