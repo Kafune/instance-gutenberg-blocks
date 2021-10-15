@@ -1,0 +1,26 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+ $primary: #0065F2;
+ $secondary: #ffffff;
+ $background: #F2F8FF;
+
+.wp-block-instance-testimonials {
+	background-color: $background;
+	color: $primary;
+	padding: 60px 0;
+
+	.testimonial-image {
+
+	}
+	.testimonial-description {
+
+	}
+	.testimonial-info {
+
+	}
+}
