@@ -12,14 +12,17 @@
   color: #0065f2;
 }
 .wp-block-instance-testimonials .testimonial-row {
-  margin: 0 auto;
-  width: 50%;
+  align-items: center;
 }
 .wp-block-instance-testimonials .testimonial-row .testimonial {
+  width: 50%;
+  margin: 0 auto;
   padding: 60px 0;
+  text-align: center;
+  font-weight: bold;
 }
-.wp-block-instance-testimonials .testimonial-row .testimonial .testimonial-image {
-  border-radius: 25px;
+.wp-block-instance-testimonials .testimonial-row .testimonial .testimonial-image, .wp-block-instance-testimonials .testimonial-row .testimonial .image-uplad {
+  border-radius: 50px;
   width: 90px;
   height: 90px;
 }

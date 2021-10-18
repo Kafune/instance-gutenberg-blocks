@@ -1,25 +1,42 @@
+import { Button } from "@wordpress/components";
 import Testimonial from "./testimonial";
 
 export default function TestimonialSlider(props) {
-	console.log(props.testimonials);
+	const testimonials = [...props.attributes.testimonials];
+
+	const updateProperties = (properties) => {
+		props.setAttributes({
+			...props.attributes,
+			testimonials: properties,
+		});
+	};
+
+	const changeProp = (property, index) => {
+		console.log(property)
+		console.log(index)
+	}
 
 	return (
-		<>
-			{props.testimonials.map((testimonial) => {
+		<div class="row testimonial-row">
+			<Button onClick={(currentIndex) => setIndex(currentIndex--)}>
+				Previous
+			</Button>
+			{props.testimonials.map((testimonial, i) => {
 				return (
 					<>
 						<Testimonial
-                            image={testimonial.image}
+							imageUrl={testimonial.imageUrl}
+							imageId={testimonial.imageId}
 							description={testimonial.description}
 							name={testimonial.name}
-							function={testimonial.companyFunction}
-							company={testimonial.companyName}
+							companyFunction={testimonial.companyFunction}
+							companyName={testimonial.companyName}
+							changeProp={(property) => changeProp(property, i)}
 						/>
 					</>
 				);
 			})}
-
-			{/* Component to fetch all testimonials, put them into the slider */}
-		</>
+			<Button onClick={(currentIndex) => setIndex(currentIndex++)}>Next</Button>
+		</div>
 	);
 }

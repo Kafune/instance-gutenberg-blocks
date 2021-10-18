@@ -13,18 +13,17 @@ $background: #f2f8ff;
 	background-color: $background;
 	color: $primary;
 	.testimonial-row {
-		margin: 0 auto;
-		width: 50%;
+		align-items: center;
 		.testimonial {
+			width: 50%;
+			margin: 0 auto;
 			padding: 60px 0;
-			.testimonial-image {
-				border-radius: 25px;
+			text-align: center;
+			font-weight: bold;
+			.testimonial-image, .image-uplad {
+				border-radius: 50px;
 				width: 90px;
 				height: 90px;
-			}
-			.testimonial-description {
-			}
-			.testimonial-info {
 			}
 		}
 	}
