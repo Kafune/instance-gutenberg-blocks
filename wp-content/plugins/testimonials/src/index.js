@@ -34,17 +34,13 @@ registerBlockType('instance/testimonials', {
 					imageId: 0,
 					imageUrl: "",
 					description: "All base UI elements are made using Nested Symbols and shared styles that are logically connected. Gorgeous, high-quality video sharing on desktop, mobile, tablet. All base UI elements are made using Nested Symbols",
-					name: "Name Surname",
-					companyFunction: "CNN",
-					companyName: "Lead marketing specialist",
+					companyInfo: "Name Surname, CNN, Lead marketing specialist",
 				},
 				{
 					imageId: 0,
 					imageUrl: "",
 					description: "All base UI elements are made using Nested Symbols and shared styles that are logically connected. Gorgeous, high-quality video sharing on desktop, mobile, tablet. All base UI elements are made using Nested Symbols",
-					name: "Name Surname2",
-					companyFunction: "CNN",
-					companyName: "Lead marketing specialist",
+					companyInfo: "Name Surname, CNN, Lead marketing specialist",
 				},
 			]
 		}

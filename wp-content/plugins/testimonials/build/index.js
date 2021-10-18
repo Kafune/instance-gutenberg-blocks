@@ -23,27 +23,11 @@ __webpack_require__.r(__webpack_exports__);
 
 function ImageUpload(props) {
   const ALLOWED_MEDIA_TYPES = ["image"];
-
-  const updateProperties = properties => {
-    props.setAttributes({ ...props.attributes,
-      usps: properties
-    });
-  };
-
-  const onSelectImage = media => {// props.setAttributes({
-    //     mediaId: Number(media.id),
-    //     mediaUrl: String(media.url),
-    // });
-  };
-
-  const removeImage = () => {// props.setAttributes({
-    //     mediaId: 0,
-    //     mediaUrl: "",
-    // });
-  };
-
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUpload, {
-    onSelect: onSelectImage,
+    onSelect: media => props.changeProp({
+      "type": "addImage",
+      "value": media
+    }),
     allowedTypes: ALLOWED_MEDIA_TYPES,
     autoOpen: true,
     render: ({
@@ -57,7 +41,7 @@ function ImageUpload(props) {
         className: "col-sm-12"
       }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
         src: props.imageUrl,
-        className: "img-fluid"
+        className: "testimonial-image"
       })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
         className: "col-sm-12"
       }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
@@ -65,50 +49,16 @@ function ImageUpload(props) {
         onClick: open
       }, "Change image"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
         className: "bg-danger",
-        onClick: removeImage
+        onClick: () => props.changeProp({
+          "type": "removeImage"
+        })
       }, "Remove image")))) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
         className: "col-sm-12"
       }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
         className: "bg-success",
         onClick: open
-      }, "Open Media Library")));
+      }, "Upload profile image")));
     }
-  })));
-}
-
-/***/ }),
-
-/***/ "./src/components/side-panel.js":
-/*!**************************************!*\
-  !*** ./src/components/side-panel.js ***!
-  \**************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": function() { return /* binding */ SidePanel; }
-/* harmony export */ });
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
-
-
-
-function SidePanel(props) {
-  const changeName = (name, i) => {
-    console.log(name);
-    console.log(i);
-  };
-
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, null, props.testimonials.map((testimonial, i) => {
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
-      label: "Testimonial name " + i,
-      onChange: name => changeName(name, i),
-      value: testimonial.name
-    }));
   })));
 }
 
@@ -133,7 +83,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function TestimonialSlider(props) {
-  const testimonials = [...props.attributes.testimonials];
+  const testimonials = [...props.testimonials];
 
   const updateProperties = properties => {
     props.setAttributes({ ...props.attributes,
@@ -141,28 +91,57 @@ function TestimonialSlider(props) {
     });
   };
 
-  const changeProp = (property, index) => {
-    console.log(property);
-    console.log(index);
+  const changeProp = ({
+    property
+  }, i) => {
+    const testimonial = { ...testimonials[i]
+    };
+
+    if (property.type === "addImage") {
+      testimonial["imageId"] = property.value.id;
+      testimonial["imageUrl"] = property.value.url;
+    } else if (property.type === "removeImage") {
+      testimonial["imageId"] = 0;
+      testimonial["imageUrl"] = "";
+    } else {
+      testimonial[property.type] = property.value;
+    }
+
+    testimonial[property.type] = property.value;
+    testimonials[i] = testimonial;
+    updateProperties(testimonials);
   };
 
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    class: "row testimonial-row"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
-    onClick: currentIndex => setIndex(currentIndex--)
-  }, "Previous"), props.testimonials.map((testimonial, i) => {
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_testimonial__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  const addTestimonial = () => {
+    const defaultTestimonial = {
+      imageId: 0,
+      imageUrl: "",
+      description: "All base UI elements are made using Nested Symbols and shared styles that are logically connected. Gorgeous, high-quality video sharing on desktop, mobile, tablet. All base UI elements are made using Nested Symbols",
+      companyInfo: "Name Surname, CNN, Lead marketing specialist"
+    };
+    testimonials.push(defaultTestimonial);
+    props.setAttributes({ ...props.attributes,
+      testimonials: testimonials
+    });
+  };
+
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, props.testimonials.map((testimonial, i) => {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "row testimonial-row"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_testimonial__WEBPACK_IMPORTED_MODULE_2__["default"], {
       imageUrl: testimonial.imageUrl,
       imageId: testimonial.imageId,
       description: testimonial.description,
       name: testimonial.name,
-      companyFunction: testimonial.companyFunction,
-      companyName: testimonial.companyName,
-      changeProp: property => changeProp(property, i)
+      companyInfo: testimonial.companyInfo,
+      changeProp: property => changeProp({
+        property
+      }, i)
     }));
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
-    onClick: currentIndex => setIndex(currentIndex++)
-  }, "Next"));
+    onClick: addTestimonial,
+    className: "bg-success"
+  }, "Add Testimonial"));
 }
 
 /***/ }),
@@ -186,34 +165,29 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Testimonial(props) {
-  // setDescription((description) => {
-  // 	console.log(description)
-  // })
-  const changeDescription = description => {
-    const testimonial = { ...testimonials[i]
-    };
-    testimonial.description = description;
-    testimonials[i] = testimonial;
-    updateProperties(testimonials);
-  };
-
-  {
-    /* Component to fetch all testimonials, put them into the slider */
-  }
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     class: "testimonial"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_image_upload__WEBPACK_IMPORTED_MODULE_2__["default"], {
     imageId: props.imageId,
     imageUrl: props.imageUrl,
-    class: "testimonial-image"
+    changeProp: props.changeProp
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
     tagName: "p",
     value: props.description,
-    onChange: description => props.changeProp(description),
+    onChange: description => props.changeProp({
+      "type": "description",
+      "value": description
+    }),
+    className: "testimonial-description",
     placeholder: "Enter your description..."
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    class: "testimonial-info"
-  }, props.name + ", ", props.companyFunction + ", ", props.companyName));
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
+    tagName: "p",
+    value: props.companyInfo,
+    onChange: companyInfo => props.changeProp({
+      "type": "companyInfo",
+      "value": companyInfo
+    })
+  }));
 }
 
 /***/ }),
@@ -236,7 +210,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editor.scss */ "./src/editor.scss");
 /* harmony import */ var _components_testimonial_slider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/testimonial-slider */ "./src/components/testimonial-slider.js");
-/* harmony import */ var _components_side_panel__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/side-panel */ "./src/components/side-panel.js");
 
 
 /**
@@ -262,7 +235,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
@@ -276,10 +248,10 @@ function Edit(props) {
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
     className: "wp-block-instance-testimonials container"
   });
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_side_panel__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    testimonials: props.attributes.testimonials
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_testimonial_slider__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    testimonials: props.attributes.testimonials
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_testimonial_slider__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    testimonials: props.attributes.testimonials,
+    attributes: props.attributes,
+    setAttributes: props.setAttributes
   }));
 }
 
@@ -332,16 +304,12 @@ __webpack_require__.r(__webpack_exports__);
         imageId: 0,
         imageUrl: "",
         description: "All base UI elements are made using Nested Symbols and shared styles that are logically connected. Gorgeous, high-quality video sharing on desktop, mobile, tablet. All base UI elements are made using Nested Symbols",
-        name: "Name Surname",
-        companyFunction: "CNN",
-        companyName: "Lead marketing specialist"
+        companyInfo: "Name Surname, CNN, Lead marketing specialist"
       }, {
         imageId: 0,
         imageUrl: "",
         description: "All base UI elements are made using Nested Symbols and shared styles that are logically connected. Gorgeous, high-quality video sharing on desktop, mobile, tablet. All base UI elements are made using Nested Symbols",
-        name: "Name Surname2",
-        companyFunction: "CNN",
-        companyName: "Lead marketing specialist"
+        companyInfo: "Name Surname, CNN, Lead marketing specialist"
       }]
     }
   },

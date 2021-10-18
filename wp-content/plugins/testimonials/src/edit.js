@@ -21,7 +21,6 @@ import { InspectorControls, useBlockProps } from "@wordpress/block-editor";
  */
 import "./editor.scss";
 import TestimonialSlider from "./components/testimonial-slider";
-import SidePanel from "./components/side-panel";
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -38,8 +37,8 @@ export default function Edit(props) {
 
 	return (
 		<div {...blockProps}>
-			<SidePanel testimonials={props.attributes.testimonials} />
-			<TestimonialSlider testimonials={props.attributes.testimonials} />
+			<TestimonialSlider testimonials={props.attributes.testimonials}
+			attributes={props.attributes} setAttributes={props.setAttributes} />
 		</div>
 	);
 }

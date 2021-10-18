@@ -3,34 +3,12 @@ import { MediaUpload, MediaUploadCheck } from "@wordpress/block-editor";
 
 export default function ImageUpload(props) {
     const ALLOWED_MEDIA_TYPES = ["image"];
-
-    const updateProperties = (properties) => {
-		props.setAttributes({
-			...props.attributes,
-			usps: properties,
-		});
-	};
-
-    const onSelectImage = (media) => {
-    // props.setAttributes({
-    //     mediaId: Number(media.id),
-    //     mediaUrl: String(media.url),
-    // });
-    }
-
-const removeImage = () => {
-    // props.setAttributes({
-    //     mediaId: 0,
-    //     mediaUrl: "",
-    // });
-};
-
-
+    
 	return (
 		<>
 			<MediaUploadCheck>
 				<MediaUpload
-					onSelect={onSelectImage}
+					onSelect={media => props.changeProp({"type": "addImage", "value": media})}
 					allowedTypes={ALLOWED_MEDIA_TYPES}
 					autoOpen={true}
 					render={({ open }) => {
@@ -42,14 +20,14 @@ const removeImage = () => {
 											<div className="col-sm-12">
 												<img
 													src={props.imageUrl}
-													className="img-fluid"
+													className="testimonial-image"
 												/>
 											</div>
 											<div className="col-sm-12">
 												<Button className="bg-warning" onClick={open}>
 													Change image
 												</Button>
-												<Button className="bg-danger" onClick={removeImage}>
+												<Button className="bg-danger" onClick={() => props.changeProp({"type": "removeImage"})}>
 													Remove image
 												</Button>
 											</div>
@@ -57,7 +35,7 @@ const removeImage = () => {
 									</div>
 								) : (
                                     <div className="col-sm-12">
-                                    <Button className="bg-success" onClick={open}>Open Media Library</Button>
+                                    <Button className="bg-success" onClick={open}>Upload profile image</Button>
                                 </div>
 								)}
 							</>
