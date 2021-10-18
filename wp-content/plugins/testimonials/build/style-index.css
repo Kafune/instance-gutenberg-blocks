@@ -8,9 +8,20 @@
  * Replace them with your own styles or remove the file completely.
  */
 .wp-block-instance-testimonials {
-  background-color: #21759b;
-  color: #fff;
+  background-color: #f2f8ff;
+  color: #0065f2;
+}
+.wp-block-instance-testimonials .testimonial-row {
+  margin: 0 auto;
+  width: 50%;
+}
+.wp-block-instance-testimonials .testimonial-row .testimonial {
   padding: 60px 0;
+}
+.wp-block-instance-testimonials .testimonial-row .testimonial .testimonial-image {
+  border-radius: 25px;
+  width: 90px;
+  height: 90px;
 }
 
 /*# sourceMappingURL=style-index.css.map*/

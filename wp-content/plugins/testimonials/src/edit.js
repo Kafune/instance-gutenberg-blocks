@@ -11,7 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -20,7 +20,8 @@ import { useBlockProps } from '@wordpress/block-editor';
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import './editor.scss';
-import Testimonials from './components/testimonial-slider';
+import TestimonialSlider from './components/testimonial-slider';
+import SidePanel from './components/side-panel';
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -30,15 +31,20 @@ import Testimonials from './components/testimonial-slider';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit() {
+export default function Edit(props) {
 	const blockProps = useBlockProps({
 		className: "wp-block-instance-testimonials container",
 	});
 
 	return (
 		<div {...blockProps}>
-			<div class="row">
-				<TestimonialSlider/>
+			<SidePanel
+				testimonials={props.attributes.testimonials}
+			/>
+			<div class="testimonial-row">
+				<TestimonialSlider
+					testimonials={props.attributes.testimonials}
+				/>
 			</div>
 		</div>
 	);

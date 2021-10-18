@@ -5,22 +5,27 @@
  * Replace them with your own styles or remove the file completely.
  */
 
- $primary: #0065F2;
- $secondary: #ffffff;
- $background: #F2F8FF;
+$primary: #0065f2;
+$secondary: #ffffff;
+$background: #f2f8ff;
 
 .wp-block-instance-testimonials {
 	background-color: $background;
 	color: $primary;
-	padding: 60px 0;
-
-	.testimonial-image {
-
-	}
-	.testimonial-description {
-
-	}
-	.testimonial-info {
-
+	.testimonial-row {
+		margin: 0 auto;
+		width: 50%;
+		.testimonial {
+			padding: 60px 0;
+			.testimonial-image {
+				border-radius: 25px;
+				width: 90px;
+				height: 90px;
+			}
+			.testimonial-description {
+			}
+			.testimonial-info {
+			}
+		}
 	}
 }
