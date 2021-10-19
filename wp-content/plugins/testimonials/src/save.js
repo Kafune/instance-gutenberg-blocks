@@ -22,16 +22,33 @@ import { useBlockProps } from "@wordpress/block-editor";
  *
  * @return {WPElement} Element to render.
  */
-export default function save() {
+export default function save(props) {
 	const blockProps = useBlockProps.save({
-		className: "wp-block-instance-text-image container",
+		className: "wp-block-instance-testimonials container",
 	});
 
 	return (
-		<div {...useBlockProps}>
-			<div class="row">
-				{__("Testimonials – hello from the saved content!", "testimonials")}
-			</div>
+		<div {...blockProps}>
+			{props.attributes.testimonials.map((testimonial) => {
+				return (
+					<div class="row testimonial-row">
+						<div class="testimonial">
+							<div class="col-sm-12">
+								<div class="row">
+									<div class="col-sm-12">
+									{testimonial.imageId != 0 ? 
+										<img src={testimonial.imageUrl} class="testimonial-image" />
+										: <div class="testimonial-image-empty" />
+									}
+									</div>
+								</div>
+							</div>
+							<p class="testimonial-description">{testimonial.description}</p>
+							<p>{testimonial.companyInfo}</p>
+						</div>
+					</div>
+				);
+			})}
 		</div>
 	);
 }

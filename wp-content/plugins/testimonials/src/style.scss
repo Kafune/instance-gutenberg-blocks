@@ -20,10 +20,14 @@ $background: #f2f8ff;
 			padding: 60px 0;
 			text-align: center;
 			font-weight: bold;
-			.testimonial-image {
+			.testimonial-image, .testimonial-image-empty {
 				border-radius: 50px;
 				width: 90px;
 				height: 90px;
+			}
+			.testimonial-image-empty {
+				background-color: $primary;
+				margin: 0 auto;
 			}
 			.testimonial-description {
 				margin-top: 36px;

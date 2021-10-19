@@ -31,7 +31,7 @@ export default function save(props) {
 	return (
 		<div {...blockProps}>
 			<div className="row">
-				{props.attributes.usps.map((usp, i) => {
+				{props.attributes.usps.map((usp) => {
 					return (
 						<div class="col">
 							<img src={usp.iconUrl} className="usp-icon" />

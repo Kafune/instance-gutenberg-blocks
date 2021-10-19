@@ -372,13 +372,30 @@ __webpack_require__.r(__webpack_exports__);
  * @return {WPElement} Element to render.
  */
 
-function save() {
+function save(props) {
   const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps.save({
-    className: "wp-block-instance-text-image container"
+    className: "wp-block-instance-testimonials container"
   });
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    class: "row"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Testimonials – hello from the saved content!", "testimonials")));
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, props.attributes.testimonials.map(testimonial => {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "row testimonial-row"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "testimonial"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "col-sm-12"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "row"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "col-sm-12"
+    }, testimonial.imageId != 0 ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      src: testimonial.imageUrl,
+      class: "testimonial-image"
+    }) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "testimonial-image-empty"
+    })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+      class: "testimonial-description"
+    }, testimonial.description), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, testimonial.companyInfo)));
+  }));
 }
 
 /***/ }),

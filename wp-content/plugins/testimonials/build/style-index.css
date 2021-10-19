@@ -21,10 +21,14 @@
   text-align: center;
   font-weight: bold;
 }
-.wp-block-instance-testimonials .testimonial-row .testimonial .testimonial-image {
+.wp-block-instance-testimonials .testimonial-row .testimonial .testimonial-image, .wp-block-instance-testimonials .testimonial-row .testimonial .testimonial-image-empty {
   border-radius: 50px;
   width: 90px;
   height: 90px;
+}
+.wp-block-instance-testimonials .testimonial-row .testimonial .testimonial-image-empty {
+  background-color: #0065f2;
+  margin: 0 auto;
 }
 .wp-block-instance-testimonials .testimonial-row .testimonial .testimonial-description {
   margin-top: 36px;
