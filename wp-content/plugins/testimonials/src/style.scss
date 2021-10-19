@@ -30,4 +30,18 @@ $background: #f2f8ff;
 			}
 		}
 	}
+	.add-testimonial-button {
+		text-align: center;
+	}
+}
+
+@media screen and (max-width: 576px) {
+	.wp-block-instance-testimonials {
+		.testimonial-row {
+			.testimonial {
+				width: 100%;
+				margin: 0 10px;
+			}
+		}
+	}
 }

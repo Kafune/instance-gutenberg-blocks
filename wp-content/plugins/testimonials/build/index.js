@@ -138,10 +138,12 @@ function TestimonialSlider(props) {
         property
       }, i)
     }));
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "add-testimonial-button"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
     onClick: addTestimonial,
     className: "bg-success"
-  }, "Add Testimonial"));
+  }, "Add Testimonial")));
 }
 
 /***/ }),
@@ -186,7 +188,8 @@ function Testimonial(props) {
     onChange: companyInfo => props.changeProp({
       "type": "companyInfo",
       "value": companyInfo
-    })
+    }),
+    placeholder: "Name and title..."
   }));
 }
 

@@ -61,7 +61,9 @@ export default function TestimonialSlider(props) {
 					</div>
 				);
 			})}
-			<Button onClick={addTestimonial} className="bg-success">Add Testimonial</Button>
+			<div class="add-testimonial-button">
+				<Button onClick={addTestimonial} className="bg-success">Add Testimonial</Button>
+			</div>
 		</>
 	);
 }

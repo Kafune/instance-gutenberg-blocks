@@ -54,6 +54,7 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @return {WPElement} Element to render.
  */
+// A few parts can be separated into smaller components, e.g. image uploading, fetching USPS
 
 function Edit(props) {
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
@@ -112,7 +113,6 @@ function Edit(props) {
   const onSelectMedia = (media, i) => {
     const usp = { ...usps[i]
     };
-    console.log(media);
     usp.iconId = media.id;
     usp.iconUrl = media.url;
     usps[i] = usp;
@@ -133,8 +133,6 @@ function Edit(props) {
     open
   }) => {
     return usp.iconId != 0 ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "col-sm-6"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "row"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "col-sm-12"
@@ -149,7 +147,7 @@ function Edit(props) {
     }, "Change image"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Button, {
       className: "bg-danger",
       onClick: () => removeMedia(i)
-    }, "Remove image")))) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    }, "Remove image"))) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "col-sm-6"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Button, {
       onClick: open
@@ -166,7 +164,7 @@ function Edit(props) {
     class: "row"
   }, props.attributes.usps.map((usp, i) => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      class: "col"
+      class: "col-lg-3"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUpload, {
       onSelect: media => onSelectMedia(media, i),
       allowedTypes: ALLOWED_MEDIA_TYPES,

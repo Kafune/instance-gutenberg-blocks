@@ -21,6 +21,7 @@ export default function Testimonial(props) {
 				tagName="p"
 				value={props.companyInfo}
 				onChange={companyInfo => props.changeProp({"type": "companyInfo", "value": companyInfo})}
+				placeholder="Name and title..."
 			/>
 		</div>
 	);

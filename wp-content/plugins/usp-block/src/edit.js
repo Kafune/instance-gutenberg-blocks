@@ -127,19 +127,17 @@ export default function Edit(props) {
 	//icon upload
 	const iconUpload = (usp, i, { open }) => {
 		return usp.iconId != 0 ? (
-			<div className="col-sm-6">
-				<div className="row">
-					<div className="col-sm-12">
-						<img src={usp.iconUrl} className="usp-icon" />
-					</div>
-					<div className="col-sm-12">
-						<Button className="bg-warning" onClick={open}>
-							Change image
-						</Button>
-						<Button className="bg-danger" onClick={() => removeMedia(i)}>
-							Remove image
-						</Button>
-					</div>
+			<div className="row">
+				<div className="col-sm-12">
+					<img src={usp.iconUrl} className="usp-icon" />
+				</div>
+				<div className="col-sm-12">
+					<Button className="bg-warning" onClick={open}>
+						Change image
+					</Button>
+					<Button className="bg-danger" onClick={() => removeMedia(i)}>
+						Remove image
+					</Button>
 				</div>
 			</div>
 		) : (
@@ -167,7 +165,7 @@ export default function Edit(props) {
 			<div class="row">
 				{props.attributes.usps.map((usp, i) => {
 					return (
-						<div class="col">
+						<div class="col-lg-3">
 							<MediaUploadCheck>
 								<MediaUpload
 									onSelect={(media) => onSelectMedia(media, i)}
