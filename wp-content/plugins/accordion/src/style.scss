@@ -4,9 +4,38 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
+ 
+$primary: #0065f2;
+$secondary: #ffffff;
+$background: #f2f8ff;
+$icon-color: #DADADA;
 
-.wp-block-create-block-accordion {
-	background-color: #21759b;
-	color: #fff;
-	padding: 2px;
+.wp-block-instance-accordion {
+	background-color: $background;
+	color: $primary;
+	width: 638px;
+	.accordion {
+		width: 100%;
+		.accordion-heading, .accordion-description {
+			border: solid 1px rgba(0, 101, 242, 0.2);
+			padding: 0 15px;
+		}
+		.accordion-heading {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		.accordion-icon {
+			font-size: 24px;
+		}
+	}
+	.accordion-open {
+		display: block;
+	}
+	.accordion-closed {
+		display: none;
+	}
+	.add-accordion-button {
+		text-align: center;	
+	}
 }

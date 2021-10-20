@@ -20,7 +20,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/tutorials/block-tutorial/writing-your-first-block-type/
  */
-function create_block_accordion_block_init() {
+function instance_accordion_block_init() {
 	register_block_type( __DIR__ );
 }
-add_action( 'init', 'create_block_accordion_block_init' );
+add_action( 'init', 'instance_accordion_block_init' );

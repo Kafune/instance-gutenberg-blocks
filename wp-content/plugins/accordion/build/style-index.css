@@ -1,1 +1,40 @@
-.wp-block-create-block-accordion{background-color:#21759b;color:#fff;padding:2px}
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/style.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-instance-accordion {
+  background-color: #f2f8ff;
+  color: #0065f2;
+  width: 638px;
+}
+.wp-block-instance-accordion .accordion {
+  width: 100%;
+}
+.wp-block-instance-accordion .accordion .accordion-heading, .wp-block-instance-accordion .accordion .accordion-description {
+  border: solid 1px rgba(0, 101, 242, 0.2);
+  padding: 0 15px;
+}
+.wp-block-instance-accordion .accordion .accordion-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.wp-block-instance-accordion .accordion .accordion-icon {
+  font-size: 24px;
+}
+.wp-block-instance-accordion .accordion-open {
+  display: block;
+}
+.wp-block-instance-accordion .accordion-closed {
+  display: none;
+}
+.wp-block-instance-accordion .add-accordion-button {
+  text-align: center;
+}
+
+/*# sourceMappingURL=style-index.css.map*/
