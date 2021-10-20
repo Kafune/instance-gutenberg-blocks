@@ -3,7 +3,7 @@ import { RichText } from "@wordpress/block-editor";
 export default function Accordion(props) {
 	return (
 		<div class="accordion">
-			<div class="accordion-heading" onClick={props.setActiveAccordion}>
+			<div class="accordion-heading">
 				<RichText
 					tagName="h4"
 					value={props.heading}
@@ -14,7 +14,7 @@ export default function Accordion(props) {
 				/>
 				<span class="accordion-icon">-</span>
 			</div>
-			<div class={`accordion-description accordion-${props.active ? "open" : "closed"}`}>
+			<div class="accordion-description accordion-open">
 				<RichText
 					tagName="p"
 					value={props.description}

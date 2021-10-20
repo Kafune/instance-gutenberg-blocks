@@ -43,10 +43,6 @@ export default function Accordions(props) {
 							heading={accordion.heading}
 							description={accordion.description}
 							changeProp={(property) => changeProp({ property }, i)}
-							active={active === i}
-							setActiveAccordion={() =>
-								active !== i ? setActive(i) : setActive(undefined)
-							}
 						/>
 					</>
 				);

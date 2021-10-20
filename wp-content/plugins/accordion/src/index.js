@@ -55,7 +55,7 @@ registerBlockType("instance/accordion", {
 		},
 		activeAccordion: {
 			type: "number",
-			default: undefined
+			default: 2
 		}
 	},
 	/**

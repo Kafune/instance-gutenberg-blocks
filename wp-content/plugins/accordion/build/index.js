@@ -143,8 +143,7 @@ function Accordion(props) {
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     class: "accordion"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    class: "accordion-heading",
-    onClick: props.setActiveAccordion
+    class: "accordion-heading"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
     tagName: "h4",
     value: props.heading,
@@ -156,7 +155,7 @@ function Accordion(props) {
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     class: "accordion-icon"
   }, "-")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    class: `accordion-description accordion-${props.active ? "open" : "closed"}`
+    class: "accordion-description accordion-open"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
     tagName: "p",
     value: props.description,
@@ -224,9 +223,7 @@ function Accordions(props) {
       description: accordion.description,
       changeProp: property => changeProp({
         property
-      }, i),
-      active: active === i,
-      setActiveAccordion: () => active !== i ? setActive(i) : setActive(undefined)
+      }, i)
     }));
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     class: "add-accordion-button"
@@ -362,7 +359,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     activeAccordion: {
       type: "number",
-      default: undefined
+      default: 2
     }
   },
 
@@ -395,7 +392,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _components_accordions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/accordions */ "./src/components/accordions.js");
 
 
 /**
@@ -410,7 +406,6 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-
 
 
 /**
@@ -428,20 +423,27 @@ function save(props) {
     className: "wp-block-instance-accordion container"
   });
 
-  const setActiveAccordion = () => props.attributes.activeAccordion !== i ? setActive(i) : setActive(undefined);
+  const toggleAccordion = i => {
+    const activeAccordion = null;
+    props.attributes.activeAccordion !== i ? activeAccordion = i : activeAccordion = null;
+    props.setAttributes({ ...props.attributes,
+      activeAccordion: activeAccordion
+    });
+  };
 
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, props.attributes.accordions.map(accordion => {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, props.attributes.accordions.map((accordion, i) => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       class: "accordion"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      class: "accordion-heading"
+      class: "accordion-heading",
+      onClick: () => toggleAccordion(i)
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText.Content, {
       tagName: "h4",
       value: accordion.heading
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
       class: "accordion-icon"
     }, "-")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      class: `accordion-description accordion-${props.active ? "open" : "closed"}`
+      class: `accordion-description accordion-${props.attributes.activeAccordion === i ? "open" : "closed"}`
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText.Content, {
       tagName: "p",
       value: accordion.description

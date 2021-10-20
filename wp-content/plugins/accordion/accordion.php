@@ -24,3 +24,17 @@ function instance_accordion_block_init() {
 	register_block_type( __DIR__ );
 }
 add_action( 'init', 'instance_accordion_block_init' );
+
+
+function my_enqueue_plugin_js() {
+	wp_enqueue_script(
+		'my-theme-frontend',
+		plugin_dir_path(__FILE__) . '/src/save.js',
+		['wp-element'],
+		time(), // Change this to null for production
+		true
+	  );
+}
+
+add_action( 'wp_enqueue_scripts', 'my_enqueue_plugin_js' ); // Loads on frontend
+

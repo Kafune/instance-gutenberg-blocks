@@ -12,8 +12,6 @@ import { __ } from "@wordpress/i18n";
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
 import { RichText, useBlockProps } from "@wordpress/block-editor";
-import Accordions from "./components/accordions";
-
 /**
  * The save function defines the way in which the different attributes should
  * be combined into the final markup, which is then serialized by the block
@@ -29,21 +27,29 @@ export default function save(props) {
 		className: "wp-block-instance-accordion container",
 	});
 
-	const setActiveAccordion = () =>
-		props.attributes.activeAccordion !== i ? setActive(i) : setActive(undefined);
+	const toggleAccordion = (i) => {
+		const activeAccordion = null;
+
+		props.attributes.activeAccordion !== i ? activeAccordion = i : activeAccordion = null;
+
+		props.setAttributes({
+			...props.attributes,
+			activeAccordion: activeAccordion,
+		})
+	}
 
 	return (
 		<div {...blockProps}>
-			{props.attributes.accordions.map((accordion) => {
+			{props.attributes.accordions.map((accordion, i) => {
 				return (
 					<div class="accordion">
-						<div class="accordion-heading">
+						<div class="accordion-heading" onClick={() => toggleAccordion(i)}>
 							<RichText.Content tagName="h4" value={accordion.heading} />
 							<span class="accordion-icon">-</span>
 						</div>
 						<div
 							class={`accordion-description accordion-${
-								props.active ? "open" : "closed"
+								props.attributes.activeAccordion === i ? "open" : "closed"
 							}`}
 						>
 							<RichText.Content tagName="p" value={accordion.description} />
