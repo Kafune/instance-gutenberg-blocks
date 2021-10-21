@@ -25,16 +25,20 @@ function instance_accordion_block_init() {
 }
 add_action( 'init', 'instance_accordion_block_init' );
 
+// var_dump(__FILE__)
 
-function my_enqueue_plugin_js() {
-	wp_enqueue_script(
-		'my-theme-frontend',
-		plugin_dir_path(__FILE__) . '/src/save.js',
-		['wp-element'],
-		time(), // Change this to null for production
-		true
-	  );
+function toggle_enqueue() {
+	if(has_block('instance/accordion')) {
+		wp_enqueue_script(
+			'accordion-front-end',
+			plugins_url( 'src/accordion-toggle.js', __FILE__ ),
+			['wp-element'],
+			false,
+			true
+		);
+	}
+
 }
 
-add_action( 'wp_enqueue_scripts', 'my_enqueue_plugin_js' ); // Loads on frontend
+add_action( 'enqueue_block_assets', 'toggle_enqueue' );
 

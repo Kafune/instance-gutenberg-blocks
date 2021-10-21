@@ -1,3 +1,5 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
 import { RichText } from "@wordpress/block-editor";
 
 export default function Accordion(props) {
