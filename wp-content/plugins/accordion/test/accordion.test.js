@@ -1,6 +1,10 @@
+
+
 import Accordion from "./../src/components/accordion";
 import React from "react";
-import { render, screen } from '@testing-library/react';
+import { shallow } from 'enzyme';
+import toJson from 'enzyme-to-json';
+
 
 describe("Accordion text editing", () => {
 	const testAccordion = {
@@ -12,20 +16,20 @@ describe("Accordion text editing", () => {
 	beforeEach(() => {});
 
 	test("Return default text value", () => {
-		// const wrapper = render(
-		// 	<Accordion
-		// 		heading={testAccordion.heading}
-		// 		description={testAccordion.description}
-		// 		changeProp={(property) => changeProp({ property }, i)}
-		// 	/>
-		// );
+		const wrapper = shallow(
+			<Accordion
+				heading={testAccordion.heading}
+				description={testAccordion.description}
+				changeProp={(property) => changeProp({ property }, i)}
+			/>
+		);
 
-		// expect(wrapper.heading).toBe("Title that can be expanded");
-        await insertBlock( 'Wrapper Block' );
+		// const accordion = jest.mock('./../src/components/accordion',() => 'Accordion')
 
-        // Check if block was inserted
-        expect( await page.$( '[data-type="e2e-tests-example/wrapper-block"]' ) ).not.toBeNull();
-    
-        expect( await getEditedPostContent() ).toMatchSnapshot();
+		// expect(wrapper.find(Accordion).prop('heading')).toBe("Title that can be expanded");
+		// const container = wrapper.find(Accordion).length
+		// console.log(toJson(wrapper).find(Accordion).length)
+		expect(toJson(wrapper)).toMatchSnapshot();
+
 	});
 });
