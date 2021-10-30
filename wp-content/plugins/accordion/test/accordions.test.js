@@ -3,8 +3,7 @@
 import Accordion from "./../src/components/accordion";
 import Accordions from "./../src/components/accordions";
 import React from "react";
-import { shallow } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import renderer from "react-test-renderer";
 
 
 describe("Accordions functions", () => {
@@ -38,10 +37,10 @@ describe("Accordions functions", () => {
 			"By creating an Account on our service, you agree to subscribe to newsletters, marketing or promotional materials and other information we may send. However, you may opt out of receiving any, or all, of these communications from us by following the unsubscribe link or instructions provided in any email we send.",
 	};
 
-	beforeEach(() => {});
+	beforeEach(() => { });
 
-	test("Snapshot test", () => {
-		const wrapper = shallow(
+	test("Shallow render single accordion", () => {
+		const wrapper = renderer.create(
 			<Accordion
 				heading={testAccordion.heading}
 				description={testAccordion.description}
@@ -49,24 +48,61 @@ describe("Accordions functions", () => {
 			/>
 		);
 
-		// const accordion = jest.mock('./../src/components/accordion',() => 'Accordion')
+		let tree = wrapper.toJSON();
+		expect(tree).toMatchSnapshot();
 
-		// expect(wrapper.find(Accordion).prop('heading')).toBe("Title that can be expanded");
-		// const container = wrapper.find(Accordion).length
-		// console.log(toJson(wrapper).find(Accordion).length)
-		console.log(wrapper.find('heading'))
+		// expect(tree.props.description).toBe("Title that can be expanded");
+		console.log(tree.props)
 
+		tree = wrapper.toJSON();
+		expect(tree).toMatchSnapshot();
 	});
 
-	test("Mocking Accordion", () => {
-		jest.mock('./../src/components/accordions', () => 'Accordions')
-		// jest.doMock('./../src/components/accordion', () => {
-		// 	const component = () => <div/>
-		// 	return component;
-		// })
+	test("Test multiple accordions", () => {
+		// let attributes = {
+		// 	accordions: {
+		// 		type: "array",
+		// 		default: [
+		// 			{
+		// 				heading: "Title that can be expanded",
+		// 				description:
+		// 					"By creating an Account on our service, you agree to subscribe to newsletters, marketing or promotional materials and other information we may send. However, you may opt out of receiving any, or all, of these communications from us by following the unsubscribe link or instructions provided in any email we send.",
+		// 			},
+		// 			{
+		// 				heading:
+		// 					"This is an example title that has enough text to spread over two lines ",
+		// 				description:
+		// 					"By creating an Account on our service, you agree to subscribe to newsletters, marketing or promotional materials and other information we may send. However, you may opt out of receiving any, or all, of these communications from us by following the unsubscribe link or instructions provided in any email we send.",
+		// 			},
+		// 			{
+		// 				heading: "Another title that can be expanded",
+		// 				description:
+		// 					"By creating an Account on our service, you agree to subscribe to newsletters, marketing or promotional materials and other information we may send. However, you may opt out of receiving any, or all, of these communications from us by following the unsubscribe link or instructions provided in any email we send.",
+		// 			},
+		// 			{
+		// 				heading: "This is an item that has been expanded",
+		// 				description:
+		// 					"By creating an Account on our service, you agree to subscribe to newsletters, marketing or promotional materials and other information we may send. However, you may opt out of receiving any, or all, of these communications from us by following the unsubscribe link or instructions provided in any email we send.",
+		// 			},
+		// 		],
+		// 	},
+		// 	activeAccordion: {
+		// 		type: "number",
+		// 		default: 2
+		// 	}
+		// }
 
-		// const test = require('./../src/components/accordions').default;
-		console.log(jest.mock('./../src/components/accordions', () => 'Accordions')
-		)
+		// const setAttributes = () => { }
+
+		// const testProperties = {
+		// 	...attributes,
+		// 	accordions: accordions
+		// }
+		// Accordions.updateProperties(testProperties)
+		// expect(Accordions.updateProperties).toBeCalled();
+
+
+		
+
 	})
 });
