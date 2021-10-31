@@ -35,7 +35,6 @@
 		"globals": {
 			"shallow": true
 		},
-		"setupTestFrameworkScriptFile": "<rootDir>/test-setup.js",
 		"moduleNameMapper": {
 			"^react($|/.+)": "<rootDir>/node_modules/@wordpress/element/node_modules/react$1",
 			"^react-dom($|/.+)": "<rootDir>/node_modules/@wordpress/element/node_modules/react-dom$1"
