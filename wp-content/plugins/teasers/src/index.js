@@ -25,7 +25,13 @@ import save from './save';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-registerBlockType('create-block/teasers', {
+registerBlockType('instance/teasers', {
+	attributes: {
+		posts: {
+			type: "array",
+			default: []
+		}
+	},
 	/**
 	 * @see ./edit.js
 	 */
@@ -34,5 +40,5 @@ registerBlockType('create-block/teasers', {
 	/**
 	 * @see ./save.js
 	 */
-	save,
+	save: () => null,
 });

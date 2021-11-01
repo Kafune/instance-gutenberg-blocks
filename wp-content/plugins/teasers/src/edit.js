@@ -29,14 +29,33 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit() {
+
+import { fetchData } from './components/fetch-requests';
+
+import {useState, useEffect} from 'react';
+import Posts from './components/posts';
+
+export default function Edit(props) {
 	const blockProps = useBlockProps({
 		className: "wp-block-instance-teasers container",
 	});
+	
+	useEffect(() => {
+		fetchData("wp/v2/posts", "GET")
+		.then(posts => {
+			props.setAttributes({
+				...props.attributes,
+				posts: posts
+			})
+		})
+	}, [])
+
 
 	return (
 		<div {...blockProps}>
-			
+			<Posts
+				posts={props.attributes.posts}
+			/>
 		</div>
 	);
 }

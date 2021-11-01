@@ -5,8 +5,24 @@
  * Replace them with your own styles or remove the file completely.
  */
 
+$primary: #0065f2;
+$secondary: #ffffff;
+$background: #f2f8ff;
+$icon-color: #DADADA;
+
 .wp-block-instance-teasers {
-	background-color: #21759b;
-	color: #fff;
+	margin: 58px 0;
+	color: $primary;
 	padding: 2px;
+	.post {
+		margin: 0 30px;
+		padding: 30px;
+		text-align: center;
+		.post-button {
+			color: $secondary;
+			background-color: $primary;
+			padding: 12px 51px;
+		}
+	}
+
 }
