@@ -28,12 +28,12 @@ import save from './save';
 registerBlockType('instance/teasers', {
 	attributes: {
 		posts: {
-			type: "array",
+			type: 'array',
 			default: []
 		},
 		postAmount: {
-			type: "number",
-			default: 3
+			type: 'number',
+			default: 4
 		}
 	},
 	/**

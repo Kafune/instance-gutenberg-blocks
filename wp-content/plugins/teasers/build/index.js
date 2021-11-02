@@ -205,12 +205,12 @@ __webpack_require__.r(__webpack_exports__);
 (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)('instance/teasers', {
   attributes: {
     posts: {
-      type: "array",
+      type: 'array',
       default: []
     },
     postAmount: {
-      type: "number",
-      default: 3
+      type: 'number',
+      default: 4
     }
   },
 

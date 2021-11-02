@@ -28,8 +28,9 @@ function instance_teasers_block_init() {
 				'type' => 'array'
 			],
 			'postAmount' => [
-				'type' => 'number'
-			]
+				'type' => 'number',
+				'default' => 4
+			],
 		]
 	] );
 }
