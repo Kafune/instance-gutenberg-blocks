@@ -39,7 +39,7 @@ export default function save(props) {
 						/> */}
 						<div
 							class="accordion-heading"
-							data-index={i}
+							data-accordion-index={i}
 							onclick={"toggleAccordion("+i+")"}
 						>
 							<RichText.Content tagName="h4" value={accordion.heading} />

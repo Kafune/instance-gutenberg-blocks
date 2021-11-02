@@ -1,14 +1,12 @@
 function toggleAccordion(i) {
-	let element = document.querySelectorAll("[data-index="+i+"]");
+	let accordion = document.querySelector("[data-accordion-index='"+i+"']");
+	let childNodes = accordion.parentNode.childNodes;
+	// console.log(childNodes[1]);
 
-	console.log(element);
-	console.log(i);
-	
-	// if(element.dataset.index === i) {
-	// 	console.log(element.dataset)
-	// } else {
-	// 	console.log("test")
-	// }
+	childNodes[1].classList.add("accordion-open");
+
+	console.log(accordion)
+
 
 
 }

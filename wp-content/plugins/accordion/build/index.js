@@ -95,13 +95,11 @@ const link = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_
 /***/ (function() {
 
 function toggleAccordion(i) {
-  let element = document.querySelectorAll("[data-index=" + i + "]");
-  console.log(element);
-  console.log(i); // if(element.dataset.index === i) {
-  // 	console.log(element.dataset)
-  // } else {
-  // 	console.log("test")
-  // }
+  let accordion = document.querySelector("[data-accordion-index='" + i + "']");
+  let childNodes = accordion.parentNode.childNodes; // console.log(childNodes[1]);
+
+  childNodes[1].classList.add("accordion-open");
+  console.log(accordion);
 } // export default function AccordionToggle(props) {
 // 	const toggleAccordion = (i) => {
 //         alert("test")
@@ -481,7 +479,7 @@ function save(props) {
       class: "accordion"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       class: "accordion-heading",
-      "data-index": i,
+      "data-accordion-index": i,
       onclick: "toggleAccordion(" + i + ")"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText.Content, {
       tagName: "h4",
