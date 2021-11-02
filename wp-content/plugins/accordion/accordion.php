@@ -32,7 +32,6 @@ function toggle_enqueue() {
 		wp_enqueue_script(
 			'accordion-front-end',
 			plugins_url( 'src/accordion-toggle.js', __FILE__ ),
-			['wp-element'],
 			false,
 			true
 		);

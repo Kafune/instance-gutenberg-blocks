@@ -33,19 +33,20 @@ export default function save(props) {
 			{props.attributes.accordions.map((accordion, i) => {
 				return (
 					<div class="accordion">
-						<AccordionToggle
+						{/* <AccordionToggle
 							attributes={props.attributes} setAttributes={props.setAttributes}
 							accordion={accordion} index={i}
-						/>
-						{/* <div
+						/> */}
+						<div
 							class="accordion-heading"
-							onClick={() => toggleAccordion(i)}
+							data-index={i}
+							onclick={"toggleAccordion("+i+")"}
 						>
 							<RichText.Content tagName="h4" value={accordion.heading} />
 							<span class="accordion-icon">
 								{props.attributes.activeAccordion === i ? "-" : "+"}
 							</span>
-						</div> */}
+						</div>
 						<div
 							class={`accordion-description accordion-${
 								props.attributes.activeAccordion === i ? "open" : "closed"
