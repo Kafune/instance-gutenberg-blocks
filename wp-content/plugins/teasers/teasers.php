@@ -26,6 +26,9 @@ function instance_teasers_block_init() {
 		'attributes' => [
 			'posts' => [
 				'type' => 'array'
+			],
+			'postAmount' => [
+				'type' => 'number'
 			]
 		]
 	] );
@@ -36,16 +39,16 @@ add_action( 'init', 'instance_teasers_block_init' );
 function instance_teasers_render($attribute, $content) {
 	$posts = '<div class="wp-block-instance-teasers container">';
 	$posts .= '<h1>Latest Posts</h1>';
-	$posts .= '<div class="row">';
-	if($attribute['posts']) {
+	$posts .= '<div class="row post-row">';
+	if(!empty($attribute['posts'])) {
 		$fetched_posts = get_posts(array(
-			'numberposts' => 4
+			'numberposts' => $attribute['postAmount']
 		));
 		foreach($fetched_posts as $post) {
-			$posts .= '<div class="col post">';
+			$posts .= '<div class="col-sm-3 post">';
 			$posts .= '<h3>'.$post->post_title.'</h3>';
-			$posts .= '<p>'.(!empty($post->post_excerpt) ? $post->post_excerpt : "There is no excerpt available").'</p>';
-			$posts .= '<a class="post-button bg-success" href='.get_permalink($post->id).'>Link to post</a>';
+			$posts .= '<p>'.(!empty($post->post_excerpt) ? $post->post_excerpt : "There is no excerpt for this post").'</p>';
+			$posts .= '<a class="post-button" href='.get_permalink($post->ID).'>Link to post</a>';
 			$posts .= '</div>';
 		};
 	}

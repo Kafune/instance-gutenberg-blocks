@@ -44,9 +44,9 @@ __webpack_require__.r(__webpack_exports__);
 
 function Post(props) {
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    class: "col post"
+    class: "col-sm-3 post"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, props.title), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, props.excerpt), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
-    className: "bg-success",
+    className: "post-button",
     href: props.link
   }, "Link to post"));
 }
@@ -70,15 +70,15 @@ __webpack_require__.r(__webpack_exports__);
 
 function Posts(props) {
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", null, "Latest Posts"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    class: "row"
-  }, props.posts ? props.posts.map(post => {
+    class: "row post-row"
+  }, props.loading ? // Possible to put a loading component here
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "Loading...") : props.posts.map(post => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_post__WEBPACK_IMPORTED_MODULE_1__["default"], {
       title: post.title.rendered,
-      excerpt: post.excerpt.rendered,
+      excerpt: post.excerpt.rendered ? post.excerpt.rendered : "There is no excerpt for this post",
       link: post.link
     });
-  }) : // Possible to put a loading component here
-  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "Loading...")));
+  })));
 }
 
 /***/ }),
@@ -141,18 +141,23 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Edit(props) {
+  const [loading, setLoading] = (0,react__WEBPACK_IMPORTED_MODULE_5__.useState)(true);
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
     className: "wp-block-instance-teasers container"
   });
   (0,react__WEBPACK_IMPORTED_MODULE_5__.useEffect)(() => {
-    (0,_components_fetch_requests__WEBPACK_IMPORTED_MODULE_4__.fetchData)("wp/v2/posts", "GET").then(posts => {
-      props.setAttributes({ ...props.attributes,
-        posts: posts
+    if (loading) {
+      (0,_components_fetch_requests__WEBPACK_IMPORTED_MODULE_4__.fetchData)("wp/v2/posts?per_page=" + props.attributes.postAmount, "GET").then(posts => {
+        props.setAttributes({ ...props.attributes,
+          posts: posts
+        });
       });
-    });
-  }, []);
+      setLoading(false);
+    }
+  }, [loading]);
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_posts__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    posts: props.attributes.posts
+    posts: props.attributes.posts,
+    loading: loading
   }));
 }
 
@@ -202,6 +207,10 @@ __webpack_require__.r(__webpack_exports__);
     posts: {
       type: "array",
       default: []
+    },
+    postAmount: {
+      type: "number",
+      default: 3
     }
   },
 

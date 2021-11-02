@@ -9,5 +9,9 @@
 .wp-block-instance-teasers {
   border: 1px dotted #f00;
 }
+.wp-block-instance-teasers .components-button {
+  display: block;
+  height: auto;
+}
 
 /*# sourceMappingURL=index.css.map*/

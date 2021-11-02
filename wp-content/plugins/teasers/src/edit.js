@@ -36,25 +36,31 @@ import {useState, useEffect} from 'react';
 import Posts from './components/posts';
 
 export default function Edit(props) {
+	const [loading, setLoading] = useState(true);
+	
 	const blockProps = useBlockProps({
 		className: "wp-block-instance-teasers container",
 	});
 	
 	useEffect(() => {
-		fetchData("wp/v2/posts", "GET")
-		.then(posts => {
-			props.setAttributes({
-				...props.attributes,
-				posts: posts
+		if(loading) {
+			fetchData("wp/v2/posts?per_page="+props.attributes.postAmount, "GET")
+			.then(posts => {
+				props.setAttributes({
+					...props.attributes,
+					posts: posts
+				})
 			})
-		})
-	}, [])
+			setLoading(false);
+		}
+	}, [loading])
 
 
 	return (
 		<div {...blockProps}>
 			<Posts
 				posts={props.attributes.posts}
+				loading={loading}
 			/>
 		</div>
 	);

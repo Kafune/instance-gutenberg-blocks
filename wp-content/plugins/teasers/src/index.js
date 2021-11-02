@@ -30,6 +30,10 @@ registerBlockType('instance/teasers', {
 		posts: {
 			type: "array",
 			default: []
+		},
+		postAmount: {
+			type: "number",
+			default: 3
 		}
 	},
 	/**

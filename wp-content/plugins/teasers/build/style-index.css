@@ -12,15 +12,19 @@
   color: #0065f2;
   padding: 2px;
 }
-.wp-block-instance-teasers .post {
-  margin: 0 30px;
-  padding: 30px;
+.wp-block-instance-teasers .post-row {
+  margin: 34px 0 62px;
+}
+.wp-block-instance-teasers .post-row .post {
+  display: flex;
+  flex-direction: column;
   text-align: center;
 }
-.wp-block-instance-teasers .post .post-button {
+.wp-block-instance-teasers .post-row .post .post-button {
   color: #ffffff;
   background-color: #0065f2;
   padding: 12px 51px;
+  margin-top: auto;
 }
 
 /*# sourceMappingURL=style-index.css.map*/

@@ -6,4 +6,8 @@
 
 .wp-block-instance-teasers {
 	border: 1px dotted #f00;
+	.components-button {
+		display: block;
+		height: auto;
+	}
 }
