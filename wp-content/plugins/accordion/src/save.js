@@ -33,10 +33,6 @@ export default function save(props) {
 			{props.attributes.accordions.map((accordion, i) => {
 				return (
 					<div class="accordion">
-						{/* <AccordionToggle
-							attributes={props.attributes} setAttributes={props.setAttributes}
-							accordion={accordion} index={i}
-						/> */}
 						<div
 							class="accordion-heading"
 							data-accordion-index={i}

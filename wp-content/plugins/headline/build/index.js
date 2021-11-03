@@ -98,7 +98,6 @@ function Edit(props) {
   };
 
   const toggleButtonTarget = (target, i) => {
-    console.log(target);
     const button = { ...buttons[i]
     };
     button.target = target;

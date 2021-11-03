@@ -103,20 +103,26 @@ function toggleAccordion(i) {
 
     if (accordion.dataset.accordionIndex == i) {
       if (accordionDescription.classList.contains("accordion-open")) {
-        accordionDescription.classList.remove("accordion-open");
-        accordionDescription.classList.add("accordion-closed");
-        accordionHeading.childNodes[1].innerHTML = "+";
+        closeAccordion(accordionHeading, accordionDescription);
       } else {
-        accordionDescription.classList.add("accordion-open");
-        accordionDescription.classList.remove("accordion-closed");
-        accordionHeading.childNodes[1].innerHTML = "-";
+        openAccordion(accordionHeading, accordionDescription);
       }
     } else {
-      accordionDescription.classList.add("accordion-closed");
-      accordionDescription.classList.remove("accordion-open");
-      accordionHeading.childNodes[1].innerHTML = "+";
+      closeAccordion(accordionHeading, accordionDescription);
     }
   });
+}
+
+function openAccordion(heading, description) {
+  heading.childNodes[1].innerHTML = "-";
+  description.classList.add("accordion-open");
+  description.classList.remove("accordion-closed");
+}
+
+function closeAccordion(heading, description) {
+  heading.childNodes[1].innerHTML = "+";
+  description.classList.remove("accordion-open");
+  description.classList.add("accordion-closed");
 }
 
 /***/ }),

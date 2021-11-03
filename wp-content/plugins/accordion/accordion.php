@@ -25,8 +25,6 @@ function instance_accordion_block_init() {
 }
 add_action( 'init', 'instance_accordion_block_init' );
 
-// var_dump(__FILE__)
-
 function toggle_enqueue() {
 	if(has_block('instance/accordion')) {
 		wp_enqueue_script(
