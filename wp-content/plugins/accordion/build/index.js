@@ -102,9 +102,15 @@ function toggleAccordion(i) {
     let accordionDescription = parentNode.childNodes[1];
 
     if (accordion.dataset.accordionIndex == i) {
-      accordionDescription.classList.add("accordion-open");
-      accordionDescription.classList.remove("accordion-closed");
-      accordionHeading.childNodes[1].innerHTML = "-";
+      if (accordionDescription.classList.contains("accordion-open")) {
+        accordionDescription.classList.remove("accordion-open");
+        accordionDescription.classList.add("accordion-closed");
+        accordionHeading.childNodes[1].innerHTML = "+";
+      } else {
+        accordionDescription.classList.add("accordion-open");
+        accordionDescription.classList.remove("accordion-closed");
+        accordionHeading.childNodes[1].innerHTML = "-";
+      }
     } else {
       accordionDescription.classList.add("accordion-closed");
       accordionDescription.classList.remove("accordion-open");
