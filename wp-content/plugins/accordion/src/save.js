@@ -44,13 +44,11 @@ export default function save(props) {
 						>
 							<RichText.Content tagName="h4" value={accordion.heading} />
 							<span class="accordion-icon">
-								{props.attributes.activeAccordion === i ? "-" : "+"}
+								+
 							</span>
 						</div>
 						<div
-							class={`accordion-description accordion-${
-								props.attributes.activeAccordion === i ? "open" : "closed"
-							}`}
+							class={`accordion-description accordion-closed`}
 						>
 							<RichText.Content tagName="p" value={accordion.description} />
 						</div>

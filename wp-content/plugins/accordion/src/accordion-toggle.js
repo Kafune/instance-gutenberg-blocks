@@ -1,39 +1,17 @@
 function toggleAccordion(i) {
-	let accordion = document.querySelector("[data-accordion-index='"+i+"']");
-	let childNodes = accordion.parentNode.childNodes;
-	// console.log(childNodes[1]);
-
-	childNodes[1].classList.add("accordion-open");
-
-	console.log(accordion)
-
-
-
+	let allAccordions = document.querySelectorAll(".accordion-heading");
+	allAccordions.forEach(accordion => {
+		let parentNode = accordion.parentNode;
+		let accordionHeading = parentNode.childNodes[0];
+		let accordionDescription = parentNode.childNodes[1];
+		if(accordion.dataset.accordionIndex == i) {
+			accordionDescription.classList.add("accordion-open");
+			accordionDescription.classList.remove("accordion-closed");
+			accordionHeading.childNodes[1].innerHTML = "-";
+		} else {
+			accordionDescription.classList.add("accordion-closed");
+			accordionDescription.classList.remove("accordion-open");
+			accordionHeading.childNodes[1].innerHTML = "+";
+		}
+	})
 }
-
-// export default function AccordionToggle(props) {
-// 	const toggleAccordion = (i) => {
-//         alert("test")
-// 		const activeAccordion = null;
-
-// 		props.attributes.activeAccordion !== i
-// 			? (activeAccordion = i)
-// 			: (activeAccordion = null);
-
-// 		props.setAttributes({
-// 			...props.attributes,
-// 			activeAccordion: activeAccordion,
-// 		});
-// 	};
-
-// 	return (
-// 		<>
-// 			<div class="accordion-heading" onClick={() => toggleAccordion(props.index)}>
-// 				<RichText.Content tagName="h4" value={props.accordion.heading} />
-// 				<span class="accordion-icon">
-// 					{props.attributes.activeAccordion === props.index ? "-" : "+"}
-// 				</span>
-// 			</div>
-// 		</>
-// 	);
-// }
