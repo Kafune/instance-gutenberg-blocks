@@ -1,0 +1,33 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+$primary: #0065f2;
+$secondary: #ffffff;
+$background: #f2f8ff;
+$icon-color: #DADADA;
+
+.wp-block-instance-teasers {
+	margin: 58px 0;
+	color: $primary;
+	padding: 2px;
+	.post-row {
+		margin: 34px 0 62px;
+		.post {
+			display: flex;
+			flex-direction: column;
+			text-align: center;
+			.post-button {
+				color: $secondary;
+				background-color: $primary;
+				padding: 12px 51px;
+				margin-top: auto;
+			}
+		}
+	}
+
+
+}

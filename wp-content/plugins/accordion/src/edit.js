@@ -20,7 +20,7 @@ import { useBlockProps } from "@wordpress/block-editor";
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import "./editor.scss";
-import TestimonialSlider from "./components/testimonial-slider";
+import Accordions from "./components/accordions";
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -32,13 +32,16 @@ import TestimonialSlider from "./components/testimonial-slider";
  */
 export default function Edit(props) {
 	const blockProps = useBlockProps({
-		className: "wp-block-instance-testimonials container",
+		className: "wp-block-instance-accordion container",
 	});
 
 	return (
 		<div {...blockProps}>
-			<TestimonialSlider testimonials={props.attributes.testimonials}
-			attributes={props.attributes} setAttributes={props.setAttributes} />
+			<Accordions
+				accordions={props.attributes.accordions}
+				attributes={props.attributes}
+				setAttributes={props.setAttributes}
+			/>
 		</div>
 	);
 }

@@ -3,7 +3,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
-import { __ } from "@wordpress/i18n";
+import { __ } from '@wordpress/i18n';
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -11,7 +11,7 @@ import { __ } from "@wordpress/i18n";
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps } from "@wordpress/block-editor";
+import { useBlockProps } from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -19,8 +19,7 @@ import { useBlockProps } from "@wordpress/block-editor";
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
-import "./editor.scss";
-import TestimonialSlider from "./components/testimonial-slider";
+import './editor.scss';
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -30,15 +29,39 @@ import TestimonialSlider from "./components/testimonial-slider";
  *
  * @return {WPElement} Element to render.
  */
+
+import { fetchData } from './components/fetch-requests';
+
+import {useState, useEffect} from 'react';
+import Posts from './components/posts';
+
 export default function Edit(props) {
+	const [loading, setLoading] = useState(true);
+	
 	const blockProps = useBlockProps({
-		className: "wp-block-instance-testimonials container",
+		className: "wp-block-instance-teasers container",
 	});
+	
+	useEffect(() => {
+		if(loading) {
+			fetchData("wp/v2/posts?per_page="+props.attributes.postAmount, "GET")
+			.then(posts => {
+				props.setAttributes({
+					...props.attributes,
+					posts: posts
+				})
+			})
+			setLoading(false);
+		}
+	}, [loading])
+
 
 	return (
 		<div {...blockProps}>
-			<TestimonialSlider testimonials={props.attributes.testimonials}
-			attributes={props.attributes} setAttributes={props.setAttributes} />
+			<Posts
+				posts={props.attributes.posts}
+				loading={loading}
+			/>
 		</div>
 	);
 }

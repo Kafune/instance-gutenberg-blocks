@@ -23,7 +23,6 @@ export default function TestimonialSlider(props) {
 			testimonial[property.type] = property.value;
 		}
 
-		testimonial[property.type] = property.value;
 		testimonials[i] = testimonial;
 
 		updateProperties(testimonials);
